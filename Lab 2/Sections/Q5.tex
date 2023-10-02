@@ -1,0 +1,49 @@
+\section{}
+The displacement field and strain distribution in a member have the form
+\begin{align*}
+    \epsilon_{x} &= a_0 + a_1 y^2 + y^4 \\
+    \epsilon_{y} &= b_0 + b_1 x^2 + x^4 \\
+    \gamma_{xy} &= c_0 + c_1xy(x^2+ y^2 + c_2) = c_0 + c_1x^3y + c_1xy^3 + c_1 c_2xy
+\end{align*}
+What relationships connecting the constants (a's, b's, and c's) make the foregoing expressions possible?
+
+There are 6 compatibility equations that must be satisfied since 6 strains cannot be arbitrarily chosen. Assuming the strains involving $z$ are zero, 
+there is only one compatibility equation that must be satisfied:
+
+\begin{align}
+    2 \frac{\partial^2 \epsilon_{xy}}{\partial x \partial y} &= \frac{\partial^2 \epsilon_{x}}{\partial y^2} + \frac{\partial^2 \epsilon_{y}}{\partial x^2} \label{eq:q4compatability}
+\end{align}
+
+Evaluating the partial derivatives:
+\begin{align*}
+    \frac{\partial^2 \epsilon_{xy}}{\partial x \partial y} &= \frac{1}{2}\frac{\partial}{\partial x} (c_1x^3 + 3c_1xy^2 + c_1c_2x) \\
+    &= \frac{1}{2}(3c_1x^2 + 3c_1y^2 + c_1c_2) \\
+    \frac{\partial^2 \epsilon_{x}}{\partial y^2} &= 2a_1 + 12y^2 \\
+    \frac{\partial^2 \epsilon_{y}}{\partial x^2} &= 2b_1 + 12x^2
+\end{align*}
+
+Substituting into (\ref{eq:q4compatability}):
+\begin{align*}
+    3c_1x^2 + 3c_1y^2 + c_1c_2 &= 2a_1 + 12y^2 + 2b_1 + 12x^2 \\
+    3c_1x^2 + 3c_1y^2 + c_1c_2 - 12x^2 - 12y^2 &= 2a_1 + 2b_1 \\
+    3c_1x^2 - 12x^2 + 3c_1y^2 - 12y^2 + c_1c_2 &= 2a_1 + 2b_1 \\
+    (3c_1 - 12)x^2 + (3c_1 - 12)y^2 + c_1c_2 &= 2a_1 + 2b_1 \\
+    \underbrace{(3c_1 - 12)(x^2+y^2)}_{\text{function of x, y}} &= \underbrace{2a_1 + 2b_1 - c_1c_2}_{\text{constant}} \overset{\text{set}}{=} 0 \\
+\end{align*}
+\vspace{-1cm}
+\begin{align*}
+    &\implies     3c_1 - 12 = 0 \\
+    &\implies     c_2 = \frac{2}{c_1}(a_1 + b_1)
+\end{align*}
+
+Therefore, the relationship between the constants is
+\begin{empheq}[box=\widefbox]{align*}
+    c_1 &= 4 \\
+    c_2 &= \frac{1}{2} (a_1 + b_1)
+\end{empheq}
+
+
+
+
+
+

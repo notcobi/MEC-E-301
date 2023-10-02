@@ -1,0 +1,377 @@
+\documentclass[24pt]{article}
+\usepackage{amsmath}
+\begin{document}
+
+Module 1
+\begin{align}
+\dot{Q}(x) &= -kA\left.\frac{\partial T}{\partial x}\right|_x \\
+\frac{\partial^2T}{\partial x^2} + \frac{\dot{e}_\mathrm{gen}}{k} &= \frac{1}{\alpha} \frac{\partial T}{\partial t} \\
+\nabla^2 T + \frac{\dot{e}_\mathrm{gen}}{k} &= \frac{1}{\alpha} \frac{\partial T}{\partial t}
+\end{align}
+
+Module 2
+\begin{align}
+\dot{q}_\mathrm{cond} &= -k\left.\frac{\partial T}{\partial x}\right|_{x=L} \\
+\dot{q}_\mathrm{conv} &= h[T(x=L)-T_\mathrm{amb}]
+\end{align}
+\begin{equation}
+-k\left.\frac{\partial T}{\partial x}\right|_{x=L} = h[T(x=L)-T_\mathrm{amb}]
+\end{equation}
+
+Module 4
+\begin{align}
+\dot{Q}_{\mathrm{conv},1} &= h_1A(T_{\infty 1}-T_1) = \frac{T_{\infty 1}-T_1}{R_{\mathrm{conv},1}} \\
+\dot{Q} &= \frac{T_2 - T_{\infty 2}}{R_{\mathrm{conv},2}} \Rightarrow T_2 = T_{\infty 2}+\dot{Q}R_{\mathrm{conv},2}
+\end{align}
+
+Module 5
+\begin{equation}
+\dot{Q} = -kA\frac{\mathrm{d}T}{\mathrm{d}r}, \quad \text{where} \quad A = 2\pi r L
+\end{equation}
+\begin{equation}
+\frac{T_1 - T_\infty}{\frac{\mathrm{ln}(r_2/r_1)}{2\pi k L}+\frac{1}{h\cdot 2\pi r_2 L}}
+\end{equation}
+\begin{align}
+\frac{\mathrm{d}\dot{Q}}{\mathrm{d}r_2} &= 0 \\
+\frac{\mathrm{d}^2\dot{Q}}{\mathrm{d}r_2^2} &< 0 \quad \text{when} \quad r_2 = \frac{k}{h}
+\end{align}
+
+Module 6
+\begin{align}
+\dot{Q}_{\mathrm{cond},x} &= \dot{Q}_{\mathrm{cond},x+\Delta x} + \dot{Q}_\mathrm{conv} \\
+A_s &= \text{perimeter} \times \Delta x \\
+&= -\frac{\mathrm{d}\dot{Q}_\mathrm{cond}}{\mathrm{d}x} = h p (T-T_\infty)
+\end{align}
+\begin{equation}
+\frac{\mathrm{d}}{\mathrm{d}x}\left(kA\frac{\mathrm{d}T}{\mathrm{d}x}\right) = h p (T-T_\infty)
+\end{equation}
+\begin{equation}
+\frac{\mathrm{d}^2\theta}{\mathrm{d}x^2}-m^2\theta = 0
+\end{equation}
+\begin{equation}
+m^2 = \frac{hp}{kA}
+\end{equation}
+\begin{equation}
+\theta = C_1 \mathrm{e}^{mx} + C_2 \mathrm{e}^{-mx}
+\end{equation}
+\begin{equation}
+T = T_b, \quad \text{at} \quad x=0 \quad \Rightarrow \quad \theta(x=0) \equiv \theta_b = T_b - T_\infty \quad \Rightarrow \quad C_1+C_2=\theta_b
+\end{equation}
+\begin{equation}
+-k\left.\frac{\mathrm{d}T}{\mathrm{d}x}\right|_{x=L} = h[T(x=L)-T_\mathrm{inf}]
+\end{equation}
+\begin{equation}
+\frac{\theta}{\theta_b} = \frac{T-T_\infty}{T_b-T_\infty} = \frac{\mathrm{cosh}[m(L-x)]}{\mathrm{cosh}(ml)}
+\end{equation}
+
+
+
+Module 7
+\begin{align}
+\theta_\mathrm{sph} &\equiv \frac{T(r,t)-T_\infty}{T_i-T_\infty}=A_1\mathrm{e}^{-\lambda_1^2 \tau}\frac{\mathrm{sin}(\lambda_1 r/r_0)}{\lambda_1 r/r_0} \\
+\theta_\mathrm{wall} &\equiv \frac{T(x,t)-T_\infty}{T_i-T_\infty}=A_1\mathrm{e}^{-\lambda_1^2 \tau}\mathrm{cos}\left(\frac{\lambda_1 x}{L}\right) \\
+\theta_\mathrm{cyl} &\equiv \frac{T(r,t)-T_\infty}{T_i-T_\infty}=A_1\mathrm{e}^{-\lambda_1^2 \tau}J_0\left(\frac{\lambda_1 r}{r_0}\right)
+\end{align}
+
+Module 8
+\begin{align}
+\frac{\partial^2T}{\partial x^2} &= \frac{1}{\alpha}\frac{\partial T}{\partial t} \\
+\frac{T-T_s}{T_s}\cdot\frac{T_s}{T_i-T_s} &= \frac{T-T_s}{T_i-T_s}=f\left(\frac{x}{\sqrt{\alpha t}}\right) \\
+\frac{\partial^2T}{\partial x^2} &= \frac{1}{4\alpha t}\frac{\mathrm{d}^2 T}{\mathrm{d}\eta^2} \\
+\frac{\partial T}{\partial t} &= -\frac{\eta}{2 t}\frac{\mathrm{d} T}{\mathrm{d}\eta} \\
+\frac{\mathrm{d}^2 T}{\mathrm{d}\eta^2} &= -2\eta \frac{\mathrm{d}T}{\mathrm{d}\eta} \\
+T &= C_1 \int_0^\eta \mathrm{e}^{-u^2}\,\mathrm{d}u + C_2 \\
+C_1 &= \frac{T_i-T_s}{\underbrace{\int_0^\infty \mathrm{e}^{-u^2}\,\mathrm{d}u}_{\text{$=\frac{\sqrt{\pi}}{2}$}}} \\
+T &= \frac{2}{\sqrt{\pi}}(T_i-T_s)\int_0^\eta\mathrm{e}^{-u^2}\,\mathrm{d}u+T_s
+\end{align}
+
+Module 9
+\begin{align}
+\mbox{Pr} &= \frac{\nu}{\alpha} = \frac{\mu/\rho}{k/\rho/c_p} = \frac{c_p\mu}{k} \\
+\mbox{Nu} &= f_2(\mbox{Re}_L,\,\mbox{Pr}) \\
+h &= \frac{1}{A_s}\int_A\!h_x\,\mathrm{d}A \\
+\delta &= \frac{4.91 x}{\mbox{Re}_x^{1/2}} \\
+C_f &= \frac{1.328}{\mbox{Re}_L^{1/2}} \\
+\mbox{Nu}_x &= \frac{h_x x}{k} = 0.332\mbox{Re}_x^{1/2}\mbox{Pr}^{1/3} \quad \mbox{Pr} > 0.6,\,\,\,\mbox{Re}_x < 5\times 10^5 \\
+\mbox{Nu} &= \frac{1}{L}\int_0^L\!\mbox{Nu}_x\,\mathrm{d}x = \frac{h L}{k} = 0.664\mbox{Re}_L^{1/2}\mbox{Pr}^{1/3} \quad \mbox{Pr} > 0.6,\,\,\,\mbox{Re}_x < 5\times 10^5 \\
+\delta &= \frac{0.38 x}{\mbox{Re}_x^{1/5}} \\
+C_f &= \frac{0.074}{\mbox{Re}_x^{1/5}} \\
+\mbox{Nu}_x &= 0.0296\mbox{Re}_x^{0.8}\mbox{Pr}^{1/3} \quad 0.6 \leq \mbox{Pr} \leq 60,\,\,\, 5 \times 10^5 \leq \mbox{Re}_x \leq 10^7 \\
+\mbox{Nu}_x &= 0.0296\mbox{Re}_x^{0.8}\mbox{Pr}^{1/3} \quad 0.6 \leq \mbox{Pr} \leq 60,\,\,\, 5 \times 10^5 \leq \mbox{Re}_x \leq 10^7 \\
+\mbox{Nu}_x &= \frac{0.3387\mbox{Re}_x^{1/2}\mbox{Pr}^{1/3}}{\left[1+\left(\frac{0.0468}{\mbox{Pr}}\right)^{2/3}\right]^{1/4}} \quad \mbox{Re}_x\mbox{Pr} \geq 100
+\end{align}
+
+Module 10
+\begin{align}
+V_\mathrm{max} &= \frac{S_T}{S_T-D}V \\
+V_\mathrm{max} &= \frac{S_T}{2(S_D-D)}V \\
+S_D &\geq \frac{S_T+D}{2} \\
+\mbox{Re}_D &= \frac{\rho V_\mathrm{max}D}{\mu} \\
+\mbox{Nu}_D &= \frac{hD}{k} = CF\mbox{Re}_D^m\mbox{Pr}^n\left(\frac{\mbox{Pr}}{\mbox{Pr}_s}\right)^{1/4} \\
+T_e &= T_s - (T_s-T_i)\mathrm{exp}\left(-\frac{A_s h}{\dot{m}c_p}\right)
+\end{align}
+
+Module 11
+\begin{align}
+V_\mathrm{avg} &= \frac{1}{\rho A_c}\int_{A_c}\!\!\rho u\,\mathrm{d}A_c = \frac{1}{A_c}\int_{A_c}\!\!u\,\mathrm{d}A_c \\
+T_m &= \frac{1}{\rho c_p V_\mathrm{avg} A_c}\int_{A_c}\!\
+\end{align}
+
+
+Module 12
+
+\frac{\partial}{\partial x}\left[u(r,x)\right] = 0
+
+\frac{\partial}{\partial
+x}\left[\frac{T_s(x)-T(r,x)}{T_s(x)-T_m(x)}\right] = 0
+
+L_{h,\mathrm{laminar}} \simeq 0.05\,\mbox{Re}\,D
+
+L_{t,\mathrm{laminar}} \simeq \mbox{Pr}\,L_{h,\mathrm{laminar}}
+
+L_{h,\mathrm{turbulent}} \simeq L_{t,\mathrm{turbulent}} \simeq 10D
+
+
+Module 13
+
+u = u(r) =
+-\frac{R^2}{4\mu}\left(\frac{\mathrm{d}p}{\mathrm{d}x}\right)\left(1-\frac{r^2}{R^2}\right)
+
+V_\mathrm{avg} =
+\frac{1}{A_c}\int_{A_c}\!\!u(r)\,r\mathrm{d}r\mathrm{d}\theta =
+-\frac{R^2}{8\mu}\left(\frac{\mathrm{d}p}{\mathrm{d}x}\right) =
+\mbox{$\frac{1}{2}$}u_\mathrm{max} = \mbox{$\frac{1}{2}$}u(r=0)
+
+\Delta P = P_1 - P_2 = \frac{8 \mu L V_\mathrm{avg}}{R^2}
+
+\nabla^2 T +\frac{\dot{e}_\mathrm{gen}}{k} =
+\frac{1}{\alpha}\frac{\partial T}{\partial t}
+
+\frac{\partial T}{\partial t} + u_r\frac{\partial T}{\partial r} +
+\frac{u_\theta}{r}\frac{\partial T}{\partial \theta}+u\frac{\partial
+T}{\partial x}
+
+\frac{\mathrm{d}T}{\mathrm{d}t} = \frac{\partial T}{\partial t} +
+\frac{\partial T}{\partial r}\frac{\mathrm{d}r}{\mathrm{d}t} +
+\frac{1}{r}\frac{\partial T}{\partial
+\theta}\frac{\mathrm{d}\theta}{\mathrm{d}t} + \frac{\partial
+T}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t}
+
+\left|\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial
+T}{\partial r}\right)\right| \gg \left|\frac{\partial^2T}{\partial
+x^2}\right|
+
+\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial
+T}{\partial r}\right) = \frac{u}{\alpha}\frac{\partial T}{\partial x}
+
+\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial
+T}{\partial r}\right) = \frac{u}{\alpha}\frac{\partial T}{\partial x}
+\qquad \Rightarrow \qquad u\frac{\partial T}{\partial x} =
+\frac{\alpha}{r}\frac{\partial}{\partial r}\left(r\frac{\partial
+T}{\partial r}\right)
+
+\frac{\mathrm{d} T_s}{\mathrm{d} x} = \frac{\dot{q}_s p}{\dot{m} c_p}
+= \frac{2\dot{q}_s}{\rho V_\mathrm{avg}c_p R}
+
+u\frac{\partial T}{\partial x} =
+\frac{\alpha}{r}\frac{\partial}{\partial r}\left(r\frac{\partial
+T}{\partial r}\right)
+
+T = T_s
+-\frac{\dot{q_s}R}{k}\left(\frac{3}{4}-\frac{r^2}{R^2}+\frac{r^4}{4R^4}\right)
+
+T_m=\frac{2}{V_\mathrm{avg}R^2}\int_0^R\!\!T(r)u(r)\,r\mathrm{d}r
+
+\dot{q}_s = h(T_s - T_m)
+
+h = \frac{48}{11}\frac{k}{D} \qquad \Rightarrow \qquad \mbox{Nu}
+\equiv \frac{hD}{k} = \frac{48}{11} = 4.36
+
+
+Module 14
+
+\mbox{Nu} =
+\frac{(f/8)(\mbox{Re}-1000)\mbox{Pr}}{1+12.7\sqrt{f/8}(\mbox{Pr}^{2/3}-1)}\,
+, \qquad 0.5 \leq \mbox{Pr} \leq 2000\, ,
+
+\frac{1}{\sqrt{f}} =
+-2.0\,\mathrm{log}\left(\frac{\varepsilon/D}{3.7}+\frac{2.51}{\mbox{Re}\sqrt{f}}\right)
+
+\mbox{Nu} = 0.023\,\mbox{Re}^{0.8}\mbox{Pr}^n
+
+
+Module 15
+
+F_\mathrm{buoyancy} = \rho_\mathrm{fluid}\,g\,V_\mathrm{body}
+
+\frac{\Delta \rho}{\rho} \simeq -\beta\frac{\Delta T}{T}
+
+u\frac{\partial T}{\partial x}+v\frac{\partial T}{\partial y} =
+\alpha\frac{\partial^2T}{\partial y^2}
+
+\mbox{Nu} = \mbox{Nu}(\mbox{Re},\,\mbox{Pr})
+
+a = g\beta(T-T_\infty)
+
+\therefore \frac{V^2}{L_c} \sim g\beta(T-T_\infty) \qquad \Rightarrow
+\qquad V \sim \sqrt{g\beta(T-T_\infty)L_c}
+
+\mbox{Re} = \frac{VL_c}{\nu} =
+\frac{\sqrt{g\beta(T-T_\infty)L_c}L_c}{\nu}
+
+\mbox{Gr} = \frac{g\beta(T-T_\infty)L_c^3}{\nu^2}
+
+\mbox{Ra} = \mbox{Gr}\,\mbox{Pr} =
+\frac{g\beta(T-T_\infty)L_c^3}{\nu\alpha} = \mbox{Re}\,\mbox{Pe}
+
+
+Module 16
+
+\mbox{Ra}_L = \frac{g\beta(T_1-T_2)L^3}{\nu^2}\mbox{Pr}
+
+\mbox{Nu}_L =
+0.18\left(\frac{\mbox{Pr}}{0.2+\mbox{Pr}}\mbox{Ra}_L\right)^{0.29}\, ,
+\qquad \frac{\mbox{Pr}}{0.2+\mbox{Pr}}\mbox{Ra}_L > 10^3
+
+\mbox{Nu} = 0.22\left(\frac{\mbox{Pr}}{0.2+\mbox{Pr}}\mbox{Ra}_L\right)^{0.28}\left(\frac{H}{L}\right)^{-1/4}\, , \qquad \mbox{Ra}_L < 10^{10}
+
+\mbox{Nu} =
+0.42\mbox{Ra}_L^{1/4}\mbox{Pr}^{0.012}\left(\frac{H}{L}\right)^{-0.3}\,
+, \qquad 1 < \mbox{Pr} < 2\times 10^4
+
+\mbox{Nu} =
+1+1.44\left[1-\frac{1708}{\mbox{Ra}_L}\right]^++\left[\frac{\mbox{Ra}_L^{1/3}}{18}-1\right]^+\,
+, \qquad \mbox{Ra}_L < 10^8\,\,\,\mbox{(gases)}
+
+\left[1-\frac{1708}{\mbox{Ra}_L}\right]^+ = \begin{cases}
+1-\frac{1708}{\mbox{Ra}_L} & \text{if}\,\,\, 1-\frac{1708}{\mbox{Ra}_L} \geq 0\\
+0 & \text{if}\,\,\, 1-\frac{1708}{\mbox{Ra}_L} < 0
+\end{cases}
+
+\mbox{Nu} =
+1+1.44\left[1-\frac{1708}{\mbox{Ra}_L\mathrm{cos}\,\theta}\right]^+\left(1-\frac{1708(\mathrm{sin}\,1.8\theta)^{1.6}}{\mbox{Ra}_L\mathrm{cos}\,\theta}\right)+\left[\frac{(\mbox{Ra}_L\mathrm{cos}\,\theta)^{1/3}}{18}-1\right]^+\,
+, \qquad \mbox{Ra}_L < 10^8\,\,\,\mbox{(gases)}
+
+\dot{Q} = \frac{2\pi k
+\mbox{Nu}}{\mathrm{ln}\left(\frac{D_o}{D_i}\right)}(T_i-T_o)
+
+\mbox{Nu} =
+\mathrm{max}\left\{1,\,0.386\left(\frac{\mbox{Pr}}{0.861+\mbox{Pr}}\right)^{1/4}(F_\mathrm{cyl}\mathrm{Ra}_L)^{1/4}\right\}
+
+\mbox{Ra}_L =
+\frac{g\beta(T_i-T_o)\left(\frac{D_o-D_i}{2}\right)^3}{\nu^2}\mbox{Pr}
+
+F_\mathrm{cyl} =
+\frac{[\mathrm{ln}(D_o/D_i)]^4}{\left(\frac{D_o-D_i}{2}\right)^3(D_i^{-3/5}+D_o^{-3/5})^5}
+
+
+Module 17
+
+R_\mathrm{total} = \frac{1}{h_iA_i}+\frac{\mathrm{ln}(D_o/D_i)}{2\pi k
+L} + \frac{1}{h_oA_o}
+
+\dot{Q} = \frac{\Delta T}{R_\mathrm{total}}
+
+\dot{Q} = UA_s\Delta T
+
+\frac{D_o}{D_i} \simeq 1\, ,\,\,\,A_i \simeq A_o
+
+\frac{\mathrm{ln}(D_o/D_i)}{2\pi k L} \ll \frac{1}{h_iA_i}\,
+,\,\,\,\frac{1}{h_oA_o}
+
+
+Module 18
+
+\Delta T = \Delta T_\mathrm{lm} = \frac{\Delta T_1 - \Delta
+T_2}{\mathrm{ln}\left(\frac{\Delta T_1}{\Delta T_2}\right)}
+
+\Delta T_\mathrm{lm} = F\Delta T_\mathrm{lm,CF}
+
+P = \frac{t_2-t_1}{T_1-t_1}
+
+
+Module 19
+
+\varepsilon = \frac{\dot{Q}}{\dot{Q}_\mathrm{max}} =
+\frac{\mbox{Actual heat transfer rate}}{\mbox{Maximum possible heat
+transfer rate}}
+
+\dot{Q}_\mathrm{max} =
+\mathrm{min}\{(\dot{m}c_p)_c,\,(\dot{m}c_p)_h\}(T_{h,\mathrm{in}}-T_{c,\mathrm{in}})
+
+(\dot{m}c_p)_c < (\dot{m}c_p)_h\, ,\,\,\,\varepsilon =
+\frac{T_{c,\mathrm{out}}-T_{c,\mathrm{in}}}{T_{h,\mathrm{in}}-T_{c,\mathrm{in}}}
+
+(\dot{m}c_p)_c > (\dot{m}c_p)_h\, ,\,\,\,\varepsilon =
+\frac{T_{h,\mathrm{in}}-T_{h,\mathrm{out}}}{T_{h,\mathrm{in}}-T_{c,\mathrm{in}}}
+
+\mathrm{NTU} =
+\frac{UA_s}{\mathrm{min}\{(\dot{m}c_p)_c,\,(\dot{m}c_p)_h\}}
+
+c =
+\frac{\mathrm{min}\{(\dot{m}c_p)_c,\,(\dot{m}c_p)_h\}}{\mathrm{max}\{(\dot{m}c_p)_c,\,(\dot{m}c_p)_h\}}
+
+
+Module 20
+
+E_b(T) = \sigma T^4
+
+E_{b\lambda} =
+\frac{C_1}{n^2\lambda^5\left[\mathrm{exp}\left(\frac{C_2}{\lambda T}\right)-1\right]}
+
+\mathrm{d}E =
+I_e(\theta,\phi)\,\mathrm{cos}\theta\,\mathrm{sin}\theta\,\mathrm{d}\theta\,\mathrm{d}\phi
+
+I_e(\theta,\phi) =
+\frac{\mathrm{d}\dot{Q}_e}{\mathrm{d}A\,\mathrm{cos}\theta\,\mathrm{sin}\theta\,\mathrm{d}\theta\,\mathrm{d}\phi}
+
+E = \int_\mathrm{hemisphere}\!\!\!\!\!\!\!\!\!\!\!\!\mathrm{d}E =
+\int_0^{2\pi}\!\!\!\int_0^{\pi/2}\!\!\!I_e(\theta,\phi)\,\mathrm{cos}\theta\,\mathrm{sin}\theta\,\mathrm{d}\theta\,\mathrm{d}\phi
+= \pi I_e
+
+
+Lecture of 2021/04/07
+
+\varepsilon_\theta(\theta,\phi,T) = \frac{I_e(\theta,\phi,T)}{I_b(T)}
+
+\varepsilon(T) = \frac{E(T)}{E_b(T)} = \frac{E(T)}{\sigma T^4}
+
+\alpha+\rho+\tau = 1
+
+
+Module 21
+
+F_{12} =
+\frac{1}{A_1}\int_{A_2}\!\!\int_{A_1}\!\!\frac{\mathrm{cos}\theta_1\,\mathrm{cos}\theta_2}{\pi
+r^2}\,\mathrm{d}A_1\mathrm{d}A_2
+
+\therefore A_1 F_{12} = A_2 F_{21}
+
+F_{11}+F_{12}+F_{13}+\ldots + F_{1N} = 1
+
+F_{12} = \frac{L_5+L_6-L_3-L_4}{2L_1}
+
+
+Module 22
+
+\tau = 0,\,\,\rho=0,\,\,\alpha=1
+
+\tau = 0,\,\,0 < \rho,\,\alpha < 1
+
+\dot{Q}_{12} = A_1 E_{b1}F_{12} - A_2 E_{b2} F_{21}
+
+A_1F_{12} = A_2F_{21}\, , \qquad E_b = \sigma T^4
+
+J = \pi I = \varepsilon E_b +\rho G
+
+J = \pi I = \varepsilon E_b +(1-\varepsilon) G
+
+\dot{Q}_{12} = A_1 F_{12}(E_{b1}-E_{b2})
+
+\dot{Q}_{12} = A_1 F_{12}(J_{1}-J_{2})
+
+\dot{Q}_{12} = \frac{A_1 \varepsilon_1}{1-\varepsilon_1}(E_{b1}-J_1)
+
+\dot{Q}_{12} = \frac{\sigma(T_1^4-T_2^4)}{\frac{1-\varepsilon_1}{A_1\varepsilon_1}+\frac{1}{A_1 F_{12}}+\frac{1-\varepsilon_2}{A_2\varepsilon_2}}
+
+\end{document}

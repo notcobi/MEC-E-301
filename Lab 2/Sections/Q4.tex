@@ -1,0 +1,32 @@
+\section{}
+A displacement field in a body is given by
+\begin{align*}
+    u = c(x^2 + 10) \\
+    v = 2cyz \\
+    w = c(-xy+z^2)
+\end{align*}
+
+where $c= 10^{-4}$. Determine the state of strain on an element position at (0, 2, 1). 
+
+Calculate all 6 unique entries of the strain tensor:
+\begin{align*}
+    \epsilon_{x}|_{(0,2,1)} &= \frac{\partial u}{\partial x} = 2cx = 2(10^{-4})(0) = 0 \\ 
+    \epsilon_{y}|_{(0,2,1)} &= \frac{\partial v}{\partial y} = 2cz = 2(10^{-4})(1) = 2(10^{-4}) \\
+    \epsilon_{z}|_{(0,2,1)} &= \frac{\partial w}{\partial z} = 2cz = 2(10^{-4})(1) = 2(10^{-4}) \\
+    \epsilon_{xy}|_{(0,2,1)} &= \frac{1}{2}\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right) = \frac{1}{2}(0 + 0) = 0 \\
+    \epsilon_{xz}|_{(0,2,1)} &= \frac{1}{2}\left(\frac{\partial u}{\partial z} + \frac{\partial w}{\partial x}\right) = \frac{1}{2}(0 + -cy) 
+    = \frac{1}{2}(0 + -2(10^{-4}) = -10^{-4} \\
+    \epsilon_{yz}|_{(0,2,1)} &= \frac{1}{2}\left(\frac{\partial v}{\partial z} + \frac{\partial w}{\partial y}\right) = \frac{1}{2}(2cy + -cx)
+    = \frac{1}{2}(2(10^{-4})(2) + 0) = 2(10^{-4})
+\end{align*}
+
+Therefore, the strain tensor is
+\begin{empheq}[box=\widefbox]{align*}
+    % factor out 10^-4
+    \epsilon = \begin{bmatrix}
+        0 & 0 & -1 \\
+        0 & 2 & 2 \\
+        -1 & 2 & 2
+    \end{bmatrix} \times 10^{-4}
+\end{empheq}
+

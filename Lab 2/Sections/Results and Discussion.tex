@@ -1,0 +1,116 @@
+\section{Results and Discussion}
+% Make a table summarizing the range, resolution, repeatability, accuracy 
+% (determined from your experiments), and the manufacturer’s stated accuracy for 
+% the five ways we configured the Arduino to measure analog voltages. (State the 
+% range in V and all other values in mV). The resolution can be calculated using 
+% Equation 5 of the lecture notes. The manufacturer claims that the accuracy of the 
+% Uno’s A/D converter is +/– 2 least significant bits (in other words, +/– 2 times the 
+% resolution if the voltage range is scaled by a reference voltage, voltage divider, 
+% amplified etc). 
+% Discuss the following:
+% b) Discuss the trade-off between the resolution of the ADC and its range. 
+% c) How does the repeatability compare to the accuracy?
+% d) Is the accuracy of the Arduino improved using an external reference voltage of 3.3 
+% V compared to the default 5 V reference voltage?
+% e) The voltage sources used to calibrate the Uno have an accuracy of 0.05%. Is this 
+% accuracy sufficient? Why or why not?
+% f) Compare the accuracy you measured to the accuracy claimed by the manufacturer. 
+% g) The voltage divider, voltage scaler circuit, and amplifier create additional error 
+% when they are used with the Arduino. Assume they have an error of 1% of reading. 
+% What error in mV do they cause when measuring a voltage at 0.102 V and at 2.500 
+% V? Is it a significant source of error compared to the accuracy of the Arduino?
+
+\subsection{Calibration of the Arduino Uno Results}
+\begin{table}[ht]
+    \caption{Range, Resolution, Repeatability, Accuracy, and Manufacturer's Accuracy for Various Ranges of the Arduino Uno}
+    \label{tab:arduino-accuracy}
+    \centering
+    \small
+    \begin{tabular}{lccccc}
+        \toprule
+        Arduino Config. & Range & Resolution & Repeatability & Acc. & Manuf. Acc. \\
+        & (V) & (mV/LSB) & (mV) & (mV) & (mV) \\
+        \midrule
+        5V Ref. & 0.000 - 5.000 & 4.883 & 44.00 & 54.00 & 9.766 \\
+        3.3V Ref. & 0.000 - 3.300 & 3.223 & 4.000 & 17.00 & 6.445 \\
+        3.3V Ref., 10x VDiv & 0.00 - 33.00 & 32.23 & 32.00 & 83.00 & 64.45 \\
+        3.3V Ref., [-10, 10]V & -10.00 - 10.00 & 19.53 & 0.000 & 24.00 & 39.06 \\
+        3.3V Ref., 10x Amp. & 0.000 - 0.330 & 0.3223 & 0.000 & 0.000 & 0.6445 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\FloatBarrier
+
+\subsection{Calibration of the Arduino Uno Discussion}
+\subsubsection{Trade-off Between Resolution and Range}
+The trade-off between resolution and range is that as the range increases, the resolution decreases. This is because the number of bits
+available to represent the range is fixed. For example, the Arduino Uno has 10 bits to represent the range of voltages. This means that the
+Arduino Uno can represent $2^{10} = 1024$ different voltages. 
+
+From Appendix \ref{sec:appendix-resolution}, if the range is multiplied by a factor of $k$, then the resolution is also multiplied by a factor of $k$, increasing resolution error.
+
+\subsubsection{Repeatability Compared to Accuracy}
+Repeatability is the maximum deviation between two measurements of the same reference quantity. Accuracy is the maximum deviation between the
+measured value and the true value. Repeatability is a measure of precision while accuracy is a measure of correctness. Both measure different
+aspects of the measurement system.
+
+\subsubsection{Accuracy of Arduino Uno with 3.3V Reference Voltage}
+% d) Is the accuracy of the Arduino improved using an external reference voltage of 3.3 
+% V compared to the default 5 V reference voltage?
+
+% from lab manual:
+% As you probably noticed the accuracy of the default Ardiuno is not very good. This is 
+% because the Arduino uses the voltage supplied over the USB cable by your computer as the 
+% reference voltage for the analog-to-digital converter. The Arduino assumes this voltage is 
+% 5 V but in reality, it can vary between 4.5 to 5.5 V depending on the computer. This can 
+% result in large errors. To make much more accurate measurements a reference voltage can 
+% be used with the Arduino’s A/D converter by suppling a known voltage to the AREF pin 
+% on the Arduino. The MecE 301 shield contains a 3.300 V reference voltage (top left corner 
+% of the shield) that can be supplied to the Arduino A/D converter. If a reference voltage is 
+% used then the range of the A/D converter will be 0 V to 3.3 V. Thus, changing the reference 
+% voltage also changes the range and resolution of the A/D. 
+
+The accuracy for the 5V reference voltage is 54.00mV while the accuracy for the 3.3V reference voltage is 17.00mV. The accuracy of the Arduino Uno is improved
+using the 3.3V reference voltage. Many computers do not supply exactly 5V over the USB cable and the Arduino's A/D converter assumes the voltage is 5V. 
+Supplying a known voltage to the AREF pin from the MEC E 301 Shield allows for more accurate measurements.
+
+\subsubsection{Accuracy of Voltage Sources}
+% e) The voltage sources used to calibrate the Uno have an accuracy of 0.05%. Is this 
+% accuracy sufficient? Why or why not?
+From Appendix \ref{sec:appendix-voltage-source-accuracy}, if we use a conservative estimate for the accuracy of the voltage source, which occurs at 2.500V, then the accuracy is 1.250mV. ANSI/ISA 51.1 states that the accuracy of the standard
+can be ignored should the accuracy be one tenth of the instrument tested. % probably should cite this
+
+Comparing this to the accuracy of the Arduino Uno, in Table \ref{tab:arduino-accuracy}, the accuracy of 
+the voltage source is sufficient for all reference values except the setup with the 3.3V reference voltage and 10x amplifier, which has an experimental accuracy of 0.000mV.
+
+
+\subsubsection{Accuracy of Arduino Uno Compared to Manufacturer's Accuracy}
+% f) Compare the accuracy you measured to the accuracy claimed by the manufacturer.
+Referring to Appendix \ref{sec:appendix-arduino-accuracy}, the experimental accuracy was less than the manufacturer's accuracy for all configurations 
+except the 3.3V reference voltage with a 10x amplifier and the 3.3V reference voltage with a [-10, 10]V range.
+
+The 5V reference voltage has an accuracy of 54.00mV while the manufacturer's accuracy is 9.766mV. This may be attributed to the variable reference voltage supplied by the computer
+
+
+\subsubsection{Additional Error from Voltage Divider, Voltage Scaler, and Amplifier}
+% g) The voltage divider, voltage scaler circuit, and amplifier create additional error 
+% when they are used with the Arduino. Assume they have an error of 1% of reading. 
+% What error in mV do they cause when measuring a voltage at 0.102 V and at 2.500 
+% V? Is it a significant source of error compared to the accuracy of the Arduino?
+
+The calculation is shown in Appendix \ref{sec:appendix-circuit-component-accuracy}. The error at 0.102V is 1.020mV and the error at 2.500V is 25.00mV. The error at 0.102 
+is not significant while the error at 2.500V is significant by ANSI/ISA 51.1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

@@ -1,0 +1,48 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Define a custom style for Python listings
+\lstdefinestyle{python}{
+    language=Python,
+    basicstyle=\ttfamily,
+    keywordstyle=\bfseries\color{deepblue},
+    emph={MyClass,__init__},
+    emphstyle=\bfseries\color{deepred},
+    stringstyle=\color{deepgreen},
+    showstringspaces=false,
+    keepspaces=true,
+    columns=flexible
+}
+
+\begin{document}
+
+\section{``In-text'' listing highlighting}
+
+\begin{lstlisting}[style=python]
+class MyClass(Yourclass):
+    def __init__(self, my, yours):
+        bla = '5 1 2 3 4'
+        print bla
+\end{lstlisting}
+
+\begin{verbatim}
+class MyClass(Yourclass):
+    def __init__(self, my, yours):
+        bla = '5 1 2 3 4'
+        print bla
+\end{verbatim}
+
+\section{Inline highlighting}
+
+Definition \lstinline[style=python]|class MyClass| means \dots
+
+\end{document}
+
