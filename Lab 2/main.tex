@@ -87,7 +87,8 @@
 \DeclareSIUnit\LSB{LSB} % Least significant bit
 
 % Custom Table of Contents Formatting
-\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsecdotsep{\cftdot} % Use dots for section 
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}} % Use subsection dots for section
 
 
 % End of Preamble
