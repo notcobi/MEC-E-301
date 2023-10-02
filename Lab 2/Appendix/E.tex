@@ -1,4 +1,5 @@
 \section{Time-Varying Voltage Measurements}
+\subsection{Time-Varying Voltage Results}
 \begin{table}[h]
     \centering
     \caption{Time-Varying Period Measurements for 10-bit and 5-bit ADCs}
@@ -8,8 +9,8 @@
     \cmidrule{2-6}
        & Cycle 1    & Cycle 2   & Cycle 3   & Cycle 4   & Cycle 5    \\
     \midrule
-    10-bit & 19240 & 21144 & 21128 & 21116 & 21400  \\
-    5-bit  & 20912 & 21104 & 21136 & 19352 & 21304  \\
+    10-bit & 21000 & 21132 & 21132 & 21124 & 21400  \\
+    5-bit  & 20912 & 21104 & 21136 & 21096 & 21304  \\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -21,10 +22,10 @@
     \toprule
        & \multicolumn{5}{c}{Frequency (Hz)}    \\
     \cmidrule{2-6}
-       & 0-1    & 1-2   & 2-3   & 3-4   & 4-5    \\
+       & Cycle 1    & Cycle 2   & Cycle 3   & Cycle 4   & Cycle 5    \\
     \midrule
-    10-bit & 51.975 & 47.295 & 47.331 & 47.357 & 46.729  \\
-    5-bit  & 47.819 & 47.384 & 47.313 & 51.674 & 46.940  \\
+    10-bit & 47.619 & 47.295 & 47.331 & 47.357 & 46.729  \\
+    5-bit  & 47.819 & 47.384 & 47.313 & 47.402 & 46.940  \\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -36,9 +37,9 @@
     \toprule
        & \multicolumn{5}{c}{Peak to Peak Voltage (V)}    \\
     \cmidrule{2-6}
-       & 0-1    & 1-2   & 2-3   & 3-4   & 4-5    \\
+       & Cycle 1    & Cycle 2   & Cycle 3   & Cycle 4   & Cycle 5    \\
     \midrule
-    10-bit & 1.212 & 0.909 & 1.028 & 1.132 & 1.199  \\
+    10-bit & 1.212 & 1.234 & 1.234 & 1.206 & 1.199  \\
     5-bit  & 1.225 & 1.237 & 1.228 & 1.192 & 1.215  \\
     \bottomrule
     \end{tabular}
@@ -46,16 +47,96 @@
 
 \begin{table}[h]
     \centering
+    \label{tab:time-varying-voltage-mean-measurements}
     \begin{tabular}{lccc}
-           & \multicolumn{3}{c}{Mean Measurements}  \\
+           & \multicolumn{3}{c}{Mean Measurements of Time-Varying Voltage} \\
     \cmidrule{2-4}
            & Frequency & Peak to Peak & Voltage       \\
            & (Hz)      & (V)          & (V)           \\
     \midrule
-    10-bit & 48.137  & 1.096        & 1.135         \\
-    5-bit  & 48.226  & 1.2194       & 1.144         \\
-    \bottomrule
+    10-bit & 47.266  & 1.217        & 1.135         \\
+    5-bit  & 47.372  & 1.2194       & 1.144         \\
+    Oscilloscope & 48.54 & 1.28 & 1.17 \\
+   \bottomrule
     \end{tabular}
 \end{table}
+\subsection{Mean Sample Calculation}
+The mean for the 10-bit and 5-bit ADCs was calculated using Excel using the \texttt{=AVERAGE()} function across 5 cycles, which was
+approximately 60 data points. 
 
-Sample calculations for the 10-bit ADC are shown below. The calculations for the 5-bit ADC are similar.
+\subsection{Uncertainty Analysis}
+\subsubsection{Frequency Uncertainty}
+\noindent Sample calculations for the 10-bit ADC are shown below. Note that the 5-bit ADC calculations are similar.
+
+For frequency, standard deviation, $\sigma$, was calculated from Excel using \texttt{=STDEV.S()}.
+For the T-distribution inverse, $t_{\alpha/2, n-1}$, the \texttt{=T.INV()} function was used, where
+$\alpha = 0.05$ and $n = 5$.
+
+\noindent Using $\sigma = \qty{0.32582}{\hertz}$ and $t_{\alpha/2, n-1} = 2.7764$, the uncertainty in frequency is:
+\[
+\begin{aligned}
+      u(f) &= t_{\alpha/2, n-1} \frac{\sigma}{\sqrt{n}} \\
+            &= 2.7764 \frac{\qty{0.32582}{\hertz}}{\sqrt{5}} \\
+            &= \qty{0.40456}{\hertz}
+\end{aligned}   
+\]
+
+\subsubsection{Peak to Peak Voltage Uncertainty}
+\noindent For peak to peak voltage, $\sigma = 0.0162$ and $t_{\alpha/2, n-1} = 2.7764$, so the uncertainty in peak to peak voltage is:
+\[
+\begin{aligned}
+      P_x &= t_{\alpha/2, n-1} \frac{\sigma}{\sqrt{n}} \\
+                &= 2.7764 \frac{\qty{0.0162}{\volt}}{\sqrt{5}} \\
+                  &= \qty{0.0201}{\volt}
+\end{aligned}
+\]
+
+\noindent For $B_x$, error propagation was used. For a single measurement, the systematic uncertainty was
+$B_{x} = \qty{0.01700}{\volt}$, which was taken from the calibration of the 3.3V reference section. 
+Since the governing equation is:
+\[
+\begin{aligned}
+      V_{\text{p-p}} &= V_{\text{ru}} - V_{\text{rl}}
+\end{aligned}
+\]
+\noindent The propagated systematic uncertainty is:
+\[
+   \begin{aligned}
+      B_{x'} &= \sqrt{\frac{\partial V_{\text{p-p}}}{\partial V_{\text{ru}}}^2 B_{\text{ru}}^2 
+      + \frac{\partial V_{\text{p-p}}}{\partial V_{\text{rl}}}^2 B_{\text{rl}}^2} \\
+            &= \sqrt{1^2 \qty{0.01700}^2 + (-1)^2 \qty{0.01700}^2} \\
+            &= \sqrt{2} (0.01700) \\
+            &= \qty{0.02404}{\volt}
+   \end{aligned}
+\]
+
+\noindent For total uncertainty of peak to peak voltage, RSS was used:
+\[
+\begin{aligned}
+      U_x &= \sqrt{P_{x}^2 + B_{x}^2} \\
+            &= \sqrt{\qty{0.0201}{\volt}^2 + \qty{0.02404}{\volt}^2} \\
+            &= \qty{0.0313}{\volt}
+\end{aligned}
+\]
+
+\noindent \textit{Note: For the 5-bit ADC, the accuracy is half the resolution,} $B_{x} = \qty{0.05156}{\volt}$.  
+
+\begin{table}[h]
+      \centering
+      \caption{Uncertainty Results for Time-Varying Voltage Measurements}
+      \begin{tabular}{lcccc}
+      \toprule
+         & Frequency (Hz) & \multicolumn{3}{c}{Peak to Peak Voltage (V)} \\
+      \cmidrule(lr){2-2} \cmidrule(lr){3-5}
+         & $P_x$ & $P_x$ & $B_x$ & $U_x$ \\
+      \midrule
+      10-bit & 0.4046 & 0.0201 & 0.02404 & 0.0313 \\
+      5-bit  & 0.3886 & 0.0214 & 0.07292 & 0.0760 \\
+      \bottomrule
+      \end{tabular}
+\end{table}
+      
+
+
+
+
