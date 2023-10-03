@@ -13,20 +13,25 @@ df_5bit = df[['time 5', 'voltage 5']]
 
 # Plot the data
 plt.plot(df_10bit['time 10'], df_10bit['voltage 10'], '-o', label='10-bit', markersize=6, markerfacecolor='none')
-plt.plot(df_5bit['time 5'], df_5bit['voltage 5'], '-s', label='5-bit', markersize=6, markerfacecolor='none')
 
 # Set the title and labels
 plt.xlabel(r'$t$, Time ($\mu$s)')
 plt.ylabel(r'$V$, Voltage (V)')
-plt.legend(loc='upper right')
 
-# Set x-axis ticks to integer values with tick mark rotation
-#plt.xticks(np.arange(df['n'].min(), df['n'].max()+1, 1), rotation=45, ha = 'left')
-plt.xticks(rotation=-45, ha = 'left')
+# Save the plot
+plt.savefig(r'Lab 2\Sections\Figures\10bit.png', dpi=300)
 
-# Show the plot
-plt.show()
+# Clear the plot
+plt.clf()
 
-# Save the plots
-plt.savefig(r'Lab 2\matplotlib\plot.png', dpi=300)
+# Plot the 5-bit data
+plt.plot(df_5bit['time 5'], df_5bit['voltage 5'], '-o', label='5-bit', markersize=6, markerfacecolor='none')
+
+# Set the title and labels
+plt.xlabel(r'$t$, Time ($\mu$s)')
+plt.ylabel(r'$V$, Voltage (V)')
+
+# Save the plot
+plt.savefig(r'Lab 2\Sections\Figures\5bit.png', dpi=300)
+
 

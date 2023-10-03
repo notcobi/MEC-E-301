@@ -21,14 +21,14 @@
 % V? Is it a significant source of error compared to the accuracy of the Arduino?
 
 \subsection{Calibration of the Arduino Uno Results}
-The results can be found in \ref{sec:appendix-arduino-calibration} in Table \ref{tab:arduino-accuracy}.
+\noindent The results can be found in \ref{sec:appendix-arduino-calibration} in Table \ref{tab:arduino-accuracy}.
 \subsection{Calibration of the Arduino Uno Discussion}
 \subsubsection{Trade-off Between Resolution and Range}
-The trade-off between resolution and range is that as the range increases, the resolution decreases. This is because the number of bits
+\noindent The trade-off between resolution and range is that as the range increases, the resolution decreases. This is because the number of bits
 available to represent the range is fixed. From Appendix \ref{sec:appendix-resolution}, if the range is multiplied by a factor of $k$, then the resolution is also multiplied by a factor of $k$, increasing resolution error.
 
 \subsubsection{Repeatability Compared to Accuracy}
-Repeatability is the maximum deviation between two measurements of the same reference quantity. Accuracy is the maximum deviation between the
+\noindent Repeatability is the maximum deviation between two measurements of the same reference quantity. Accuracy is the maximum deviation between the
 measured value and the true value. Repeatability is a measure of precision while accuracy is a measure of correctness.
 
 \subsubsection{Accuracy of Arduino Uno with 3.3V Reference Voltage}
@@ -47,14 +47,14 @@ measured value and the true value. Repeatability is a measure of precision while
 % used then the range of the A/D converter will be 0 V to 3.3 V. Thus, changing the reference 
 % voltage also changes the range and resolution of the A/D. 
 
-The accuracy for the 5V reference voltage is 54.00mV while the accuracy for the 3.3V reference voltage is 17.00mV. The accuracy of the Arduino Uno is improved
+\noindent The accuracy for the 5V reference voltage is 54.00mV while the accuracy for the 3.3V reference voltage is 17.00mV. The accuracy of the Arduino Uno is improved
 using the 3.3V reference voltage. Many computers do not supply exactly 5V over the USB cable and the Arduino's A/D converter assumes the voltage is 5V. 
 Supplying a known voltage to the AREF pin from the MEC E 301 Shield allows for more accurate measurements.
 
 \subsubsection{Accuracy of Voltage Sources}
 % e) The voltage sources used to calibrate the Uno have an accuracy of 0.05%. Is this 
 % accuracy sufficient? Why or why not?
-From Appendix \ref{sec:appendix-voltage-source-accuracy}, if we use a conservative estimate for the accuracy of the voltage source, which occurs at 2.500V, then the accuracy is 1.250mV. ANSI/ISA 51.1 states that the accuracy of the standard
+\noindent From Appendix \ref{sec:appendix-voltage-source-accuracy}, if we use a conservative estimate for the accuracy of the voltage source, which occurs at 2.500V, then the accuracy is 1.250mV. ANSI/ISA 51.1 states that the accuracy of the standard
 can be ignored should the accuracy be one tenth of the instrument tested. % probably should cite this
 
 Comparing this to the accuracy of the Arduino Uno, in Table \ref{tab:arduino-accuracy}, the accuracy of 
@@ -63,7 +63,7 @@ the voltage source is sufficient for all reference values except the setup with 
 
 \subsubsection{Accuracy of Arduino Uno Compared to Manufacturer's Accuracy}
 % f) Compare the accuracy you measured to the accuracy claimed by the manufacturer.
-Referring to Appendix \ref{sec:appendix-arduino-accuracy}, the experimental accuracy was less than the manufacturer's accuracy for all configurations 
+\noindent Referring to Appendix \ref{sec:appendix-arduino-accuracy}, the experimental accuracy was worse than the manufacturer's accuracy for all configurations 
 except the 3.3V reference voltage with a 10x amplifier and the 3.3V reference voltage with a [-10, 10]V range.
 
 The 5V reference voltage has an accuracy of 54.00mV while the manufacturer's accuracy is 9.766mV. This may be attributed to the variable reference voltage supplied by the computer
@@ -75,10 +75,12 @@ The 5V reference voltage has an accuracy of 54.00mV while the manufacturer's acc
 % What error in mV do they cause when measuring a voltage at 0.102 V and at 2.500 
 % V? Is it a significant source of error compared to the accuracy of the Arduino?
 
-The calculation is shown in Appendix \ref{sec:appendix-circuit-component-accuracy}. The error at 0.102V is 1.020mV and the error at 2.500V is 25.00mV. The error at 0.102 
+\noindent The calculation is shown in Appendix \ref{sec:appendix-circuit-component-accuracy}. The error at 0.102V is 1.020mV and the error at 2.500V is 25.00mV. The error at 0.102 
 is not significant while the error at 2.500V is significant by ANSI/ISA 51.1.
 
-\subsection{Time Varying Voltage Discussion}
+\subsection{Time Varying Voltage Results}
+Graphs of the time varying voltage can be found in Appendix \ref{sec:figures}. Figure \ref{fig:10bit} shows the time varying voltage for the 10-bit Arduino Uno. 
+Figure \ref{fig:5bit} shows the time varying voltage for the 5-bit Arduino Uno. 
 % 5) Considering the calculations you made in part 4), discuss the following:
 % a) How do the Arduino measurements of mean voltage, frequency, and peak-to-peak 
 % voltage compare to the oscilloscope measurements?
@@ -90,8 +92,48 @@ is not significant while the error at 2.500V is significant by ANSI/ISA 51.1.
 % uncertainty or bias uncertainty? What recommendations would you make to
 % improve the measurement of the peak-to-peak voltage with the Arduino?
 
+\section{Time Varying Voltage Discussion}
+\subsubsection{Arduino Measurements Compared to Oscilloscope Measurements}
+\noindent From Appendix \ref{sec:appendix-time-varying-voltage-measurements}, Table \ref{tab:time-varying-voltage-mean-measurements},
+the Arduino measurements of mean voltage, frequency, and peak-to-peak voltage are $\qty{1.135}{\volt}$, $\qty{47.266}{\hertz}$, and $\qty{1.217}{\volt}$ respectively.
+The oscilloscope measurements are $\qty{1.17}{\volt}$, $\qty{48.54}{\hertz}$, and $\qty{1.28}{\volt}$ respectively. The Arduino measurements are close 
+to the oscilloscope measurements. 
 
+The 10 and 5 bit frequencies do not overlap with the oscilloscope frequency. The 5-bit peak to peak voltage and mean voltage overlap with the oscilloscope measurements.
+The 10-bit peak to peak voltage and mean voltage do not overlap with the oscilloscope measurements.
 
+\subsubsection{Precision Uncertainty in Frequency Measurements}
+\noindent From Appendix \ref{sec:appendix-time-varying-voltage-measurements}, Table \ref{tab:time-varying-frequency-measurements},both the 10-bit 
+and 5-bit Arduino have a precision uncertainty of about $\qty{0.4}{\hertz}$, which is about 1\% of the measured frequency. 
+The measurement of frequency with the Arduino can be improved by increasing the number of samples taken.
+
+\subsubsection{Uncertainty in Peak-to-Peak Voltage Measurements}
+\noindent From Appendix \ref{sec:appendix-time-varying-voltage-measurements}, Table \ref{tab:time-varying-peak-to-peak-voltage-results}, 
+the 5-bit measurement of peak-to-peak voltage had the highest total uncertainty. For the 5-bit measurements, for both the peak and troughs, 
+the precision and systematic uncertainty were $\qty{0.01031}{\volt}$ and $\qty{0.05156}{\volt}$ respectively. The highest uncertainty is caused by 
+systematic uncertainty.
+
+\subsubsection{Recommendations to Improve Peak-to-Peak Voltage Measurements}
+\noindent From Table \ref{tab:time-varying-peak-to-peak-voltage-uncertainty-measurements}, the systematic and precision uncertainty were approximately
+$\qty{0.01}{\volt}$ and $\qty{0.02}{\volt}$ respectively. Increasing the number of bits and increasing the linearity of the Arduino Uno would decrease the systematic uncertainty.
+Increasing the sample rate would decrease the precision uncertainty since the samples can \textit{catch} the peak and troughs of the sine wave better.
+
+%     \centering
+%     \caption{Nominal Measurements of Time-Varying Voltage}
+%     \label{tab:time-varying-voltage-mean-measurements}
+%     \begin{tabular}{lccc}
+%       \toprule
+%            & \multicolumn{3}{c}{Mean Measurements of Time-Varying Voltage} \\
+%     \cmidrule{2-4}
+%            & Frequency & Peak to Peak & Mean Voltage       \\
+%            & (Hz)      & (V)          & (V)           \\
+%     \midrule
+%     10-bit & 47.266  & 1.217        & 1.135         \\
+%     5-bit  & 47.372  & 1.2194       & 1.144         \\
+%     Oscilloscope & 48.54 & 1.28 & 1.17 \\
+%    \bottomrule
+%     \end{tabular}
+% \end{table}
 
 
 

@@ -10,11 +10,33 @@
 % Presenting, and referring to, a schematic diagram of the set-up saves words (and time) 
 % and helps reader comprehension
 
-A schematic of the experimental setup is shown in Figure [insert figure]
-The precis provided by the MEC E 301 course was followed \cite{lab2precis}. All measurements were taken from the serial monitor
-of the Arduino IDE. During calibration, different circuit components and reference voltages were used to measure the voltage output of 
-the PCB. 
+\subsection{Equipment}
+The following equipment was used to perform the experiment: Arduino Uno, MEC E 301 Shield, computer, oscilloscope, and jumper wires.
 
+\subsection{Calibration}
+\noindent A schematic of the experimental setup is shown in Figure [insert figure].
+For extensive details on the calibration procedure, refer to the precis provided by the MEC E 301 course
+All measurements were taken from the serial monitor of the Arduino IDE. During calibration, different circuit components 
+and reference voltages were used to measure the voltage output of the PCB.
+
+First, measuring voltages with a 5V reference voltage was performed. The \texttt{5V} and \texttt{GND} pins on the Arduino Uno were
+connected to the \texttt{5V\_VIN} and \texttt{GND} pins on the PCB. The \texttt{A0} pin on the Arduino Uno was connected to the output pin,
+\texttt{2.500V}. After uploading the sketch, ten values were recorded from the serial monitor. The \texttt{2.500V} output pin was then
+swapped to \texttt{1.800V}, \texttt{1.024V}, and \texttt{0.102V} and ten values were recorded for each.
+
+Next, measuring voltages with a 3.3V reference voltage was performed. The AREF jumper on the MEC E 301 Shield was inserted, connecting the
+3.3V reference voltage to the AREF pin on the Arduino Uno. The code was modified to reflect the new reference voltage, \texttt{float voltage = sensorValue * (3.3 / 1024.0);}.
+The voltages \texttt{2.500}, \texttt{1.800}, \texttt{1.024}, and \texttt{0.102} were measured again and ten values were recorded for each.
+
+The next calibrations utilzied different circuit components. Connecting the output pin on the PCB to the \texttt{D10\_I}, \texttt{+/-10\_I}, and \texttt{X10\_I} pins on 
+the MEC E 301 Shield allowed for the use of a voltage divider, [-10, 10]V range, and amplifier respectively. The \texttt{D10\_O}, \texttt{+/-10\_O}, and \texttt{X10\_O} 
+pins on the MEC E 301 Shield were connected to the \texttt{A0} pin on the Arduino Uno. The calibration voltages \texttt{2.500}, \texttt{1.800}, \texttt{1.024}, and \texttt{0.102}
+were measured again and ten values were recorded for each.
+
+\subsection{Time Varying Voltage}
+\noindent The \texttt{SINE\_OP} pin on the PCB was connected to the \texttt{A0} pin on the Arduino Uno. The code was modified to output a timestamp and 
+voltage value and the baud rate was set to 115200. The serial monitor was opened and the voltage was recorded for 255 values. The values were 
+copied into an Excel spreadsheet for analysis.
 
 
 % \forceindent The following procedure was followed as outlined in the lab precis \cite{lab2precis}. First, the Arduino Uno was 

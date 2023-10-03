@@ -1,4 +1,28 @@
 \section{Time-Varying Voltage Measurements}
+\label{sec:appendix-time-varying-voltage-measurements}
+
+\noindent Below in Table \ref{tab:time-varying-voltage-mean-measurements} are the nominal measurements for the time-varying voltage for the 10-bit and 5-bit ADCs.
+\begin{table}[h]
+    \centering
+    \caption{Nominal Measurements of Time-Varying Voltage}
+    \label{tab:time-varying-voltage-mean-measurements}
+    \begin{tabular}{lccc}
+      \toprule
+           & \multicolumn{3}{c}{Mean Measurements of Time-Varying Voltage} \\
+    \cmidrule{2-4}
+           & Frequency & Peak to Peak & Mean Voltage       \\
+           & (Hz)      & (V)          & (V)           \\
+    \midrule
+    10-bit & 47.266  & 1.217        & 1.135         \\
+    5-bit  & 47.372  & 1.2194       & 1.144         \\
+    Oscilloscope & 48.54 & 1.28 & 1.17 \\
+   \bottomrule
+    \end{tabular}
+\end{table}
+\subsection{Mean Sample Calculation}
+\noindent The mean voltage for the 10-bit and 5-bit ADCs was calculated using Excel using the \texttt{=AVERAGE()} function across 5 cycles, which was
+approximately 60 data points. 
+
 \subsection{Time-Varying Voltage Period Measurements}
 
 \noindent Below is a table of the time-varying period measurements for the 10-bit and 5-bit ADCs. 
@@ -37,7 +61,7 @@ The T-distribution inverse was calculated using the \texttt{=T.INV()} function, 
    \end{tabular}
 \end{table}
 
-\noindent Sample calculations for the \textbf{10-bit} ADC are shown. To calculate the random uncertainty, the following equation was used:
+Sample calculations for the \textbf{10-bit} ADC are shown. To calculate the random uncertainty, the following equation was used:
 \[
 \begin{aligned}
    P_x &= t_{\alpha/2, n-1} \frac{\sigma}{\sqrt{n}} \\
@@ -68,7 +92,7 @@ The T-distribution inverse was calculated using the \texttt{=T.INV()} function, 
    \end{tabular}
 \end{table}
 
-The equation relating frequency and period is shown below. Sample calculation for the 10-bit ADC is shown below.
+\noindent The equation relating frequency and period is shown below. Sample calculation for the 10-bit ADC is shown below.
 \[
 \begin{aligned}
    f &= \frac{1}{T} \\
@@ -90,7 +114,7 @@ The equation relating frequency and period is shown below. Sample calculation fo
 \]
 
 \subsection{Time-Varying Voltage Peak to Peak Voltage Calculations}
-Below are the resulting peaks and troughs for the 10-bit and 5-bit ADCs for 5 cycles. 
+\noindent Below are the resulting peaks and troughs for the 10-bit and 5-bit ADCs for 5 cycles. 
 \begin{table}
    \centering
    \caption{Time-Varying Peak and Trough Voltage Measurements for 10-bit and 5-bit ADCs}
@@ -170,17 +194,11 @@ sample calculations for the 10-bit ADC.
 \[
 \begin{aligned}
    U_{x'} &= \sqrt{\left(\frac{\partial V_{\text{p-p}}}{\partial V_{\text{ru}}} U_{x, ru}\right)^2 + \left(\frac{\partial V_{\text{p-p}}}{\partial V_{\text{rl}}} U_{x, rl}\right)^2} \\
-          &= \sqrt{1^2 \qty{0.0219}^2 + (-1)^2 \qty{0.0205}^2} \\
+          &= \sqrt{1^2 0.0219^2 + (-1)^2 0.0205^2} \\
             &= \boxed{\qty{0.0381}{\volt}}
 \end{aligned}
 \]
 
-
-% Nominal Value	Stdev	T INV	P_x	B_x	U_x
-% 10-Bit Trough	0.544	1.111E-02	2.7764	0.01380	0.01700	0.0219
-% 5-Bit Trough	0.542	8.307E-03	2.7764	0.01031	0.05156	0.0526
-% 10-Bit Peak	1.761	9.274E-03	2.7764	0.01151	0.01700	0.0205
-% 5-Bit Peak	1.761	1.092E-02	2.7764	0.01356	0.05156	0.0533
 
 
 % \begin{table}[h]

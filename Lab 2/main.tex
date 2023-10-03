@@ -107,7 +107,9 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}} % Use subsection dots for section
 
 \sisetup{group-digits=false} % changes the default (true)
-
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 % End of Preamble
 %-------------------------------------------------------------------------------
@@ -167,6 +169,10 @@
 
 \newpage
 \appendix
+\renewcommand\thefigure{\thesection.\arabic{figure}}    
+\renewcommand\thetable{\thesection.\arabic{table}}
+\input{Appendix/Figures.tex}
+\newpage
 \input{Appendix/Calibration_data.tex}
 \newpage
 \input{Appendix/A}
