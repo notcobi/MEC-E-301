@@ -21,6 +21,7 @@
 \usepackage{listings} % Include code listings
 \usepackage{tocloft}  % Table of contents formatting
 \usepackage{mathtools}
+\usepackage{pdfpages}
 
 
 % Define Custom Colors
@@ -107,21 +108,28 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}} % Use subsection dots for section
 
 \sisetup{group-digits=false} % changes the default (true)
-\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+% \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+% \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+% \titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing*{\section}{0pt}{0.1\baselineskip}{0.2\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.1\baselineskip}{0.2\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{0.1\baselineskip}{0.2\baselineskip}
 
 % End of Preamble
 %-------------------------------------------------------------------------------
 
 %++++++++++++++++++++++++++++++++++++++++
 \begin{document}
+
+\includepdf[pages=-]{rubric.pdf}
+
+
 \begin{titlepage}
     \centering
     \vspace*{2cm} % Adjust vertical spacing
     
     % Title
-    \Huge {MEC E 301 \\Lab 2: Dimensional Measurement Techniques} \\
+    \Huge {MEC E 301 \\Lab 2: Digital Measurement Techniques} \\
     \vspace{1cm} % Adjust vertical spacing
     
     % Author
@@ -161,6 +169,7 @@
 \input{Sections/Introduction.tex}
 \input{Sections/Procedure.tex}
 \input{Sections/Results and Discussion.tex}
+\input{Sections/Conclusion.tex}
 
 % \newpage
 % %\bibliographystyle{IEEEtran}
