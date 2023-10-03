@@ -20,6 +20,8 @@
 \usepackage{cancel} % Strikethrough text
 \usepackage{listings} % Include code listings
 \usepackage{tocloft}  % Table of contents formatting
+\usepackage{mathtools}
+
 
 % Define Custom Colors
 %-------------------------------------------------------------------------------
@@ -44,6 +46,20 @@
     showtabs=false,                  
     tabsize=4
 }
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
 
 % Set Code Listing Style
 \lstset{style=mystyle}
@@ -151,6 +167,8 @@
 
 \newpage
 \appendix
+\input{Appendix/Calibration_data.tex}
+\newpage
 \input{Appendix/A}
 \newpage
 \input{Appendix/B}

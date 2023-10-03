@@ -21,38 +21,15 @@
 % V? Is it a significant source of error compared to the accuracy of the Arduino?
 
 \subsection{Calibration of the Arduino Uno Results}
-\begin{table}[ht]
-    \caption{Range, Resolution, Repeatability, Accuracy, and Manufacturer's Accuracy for Various Ranges of the Arduino Uno}
-    \label{tab:arduino-accuracy}
-    \centering
-    \small
-    \begin{tabular}{lccccc}
-        \toprule
-        Arduino Config. & Range & Resolution & Repeatability & Acc. & Manuf. Acc. \\
-        & (V) & (mV/LSB) & (mV) & (mV) & (mV) \\
-        \midrule
-        5V Ref. & 0.000 - 5.000 & 4.883 & 44.00 & 54.00 & 9.766 \\
-        3.3V Ref. & 0.000 - 3.300 & 3.223 & 4.000 & 17.00 & 6.445 \\
-        3.3V Ref., 10x VDiv & 0.00 - 33.00 & 32.23 & 32.00 & 83.00 & 64.45 \\
-        3.3V Ref., [-10, 10]V & -10.00 - 10.00 & 19.53 & 0.000 & 24.00 & 39.06 \\
-        3.3V Ref., 10x Amp. & 0.000 - 0.330 & 0.3223 & 0.000 & 0.000 & 0.6445 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-\FloatBarrier
-
+The results can be found in \ref{sec:appendix-arduino-calibration} in Table \ref{tab:arduino-accuracy}.
 \subsection{Calibration of the Arduino Uno Discussion}
 \subsubsection{Trade-off Between Resolution and Range}
 The trade-off between resolution and range is that as the range increases, the resolution decreases. This is because the number of bits
-available to represent the range is fixed. For example, the Arduino Uno has 10 bits to represent the range of voltages. This means that the
-Arduino Uno can represent $2^{10} = 1024$ different voltages. 
-
-From Appendix \ref{sec:appendix-resolution}, if the range is multiplied by a factor of $k$, then the resolution is also multiplied by a factor of $k$, increasing resolution error.
+available to represent the range is fixed. From Appendix \ref{sec:appendix-resolution}, if the range is multiplied by a factor of $k$, then the resolution is also multiplied by a factor of $k$, increasing resolution error.
 
 \subsubsection{Repeatability Compared to Accuracy}
 Repeatability is the maximum deviation between two measurements of the same reference quantity. Accuracy is the maximum deviation between the
-measured value and the true value. Repeatability is a measure of precision while accuracy is a measure of correctness. Both measure different
-aspects of the measurement system.
+measured value and the true value. Repeatability is a measure of precision while accuracy is a measure of correctness.
 
 \subsubsection{Accuracy of Arduino Uno with 3.3V Reference Voltage}
 % d) Is the accuracy of the Arduino improved using an external reference voltage of 3.3 
