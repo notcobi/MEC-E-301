@@ -4,31 +4,19 @@
 \contentsline {subsection}{\numberline {2.2}Calibration}{1}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Time Varying Voltage}{1}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Results and Discussion}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Calibration of the Arduino Uno Results}{2}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Calibration of the Arduino Uno Discussion}{2}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Trade-off Between Resolution and Range}{2}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Repeatability Compared to Accuracy}{2}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Accuracy of Arduino Uno with 3.3V Reference Voltage}{2}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Accuracy of Voltage Sources}{2}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Accuracy of Arduino Uno Compared to Manufacturer's Accuracy}{2}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}Additional Error from Voltage Divider, Voltage Scaler, and Amplifier}{2}{subsubsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.3}Time Varying Voltage Results}{3}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Time Varying Voltage Discussion}{3}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Arduino Measurements Compared to Oscilloscope Measurements}{3}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Precision Uncertainty in Frequency Measurements}{3}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Uncertainty in Peak-to-Peak Voltage Measurements}{3}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Recommendations to Improve Peak-to-Peak Voltage Measurements}{3}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.1}Calibration of the Arduino Uno Results and Discussion}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Time Varying Voltage Results and Discussion}{3}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Conclusion}{3}{section.4}%
 \contentsline {section}{\numberline {A}Figures}{4}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Schematic of the system}{4}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Plots of Time-Varying Signals}{5}{subsection.A.2}%
 \contentsline {section}{\numberline {B}Appendix: Arduino Uno Calibration Results}{7}{appendix.B}%
 \contentsline {section}{\numberline {C}Appendix: Arduino Uno Accuracy}{8}{appendix.C}%
-\contentsline {section}{\numberline {D}Appendix: Derivation of Resolution}{9}{appendix.D}%
-\contentsline {section}{\numberline {E}Appendix: Voltage Source Accuracy}{10}{appendix.E}%
-\contentsline {section}{\numberline {F}Appendix: Circuit Component Accuracy}{11}{appendix.F}%
-\contentsline {section}{\numberline {G}Time-Varying Voltage Measurements}{12}{appendix.G}%
-\contentsline {subsection}{\numberline {G.1}Mean Sample Calculation}{12}{subsection.G.1}%
-\contentsline {subsection}{\numberline {G.2}Time-Varying Voltage Period Measurements}{12}{subsection.G.2}%
-\contentsline {subsection}{\numberline {G.3}Time-Varying Voltage Frequency Calculations}{13}{subsection.G.3}%
-\contentsline {subsection}{\numberline {G.4}Time-Varying Voltage Peak to Peak Voltage Calculations}{14}{subsection.G.4}%
+\contentsline {section}{\numberline {D}Appendix: Derivation of Resolution}{10}{appendix.D}%
+\contentsline {section}{\numberline {E}Appendix: Voltage Source Accuracy}{11}{appendix.E}%
+\contentsline {section}{\numberline {F}Appendix: Circuit Component Accuracy}{12}{appendix.F}%
+\contentsline {section}{\numberline {G}Time-Varying Voltage Measurements}{13}{appendix.G}%
+\contentsline {subsection}{\numberline {G.1}Mean Sample Calculation}{13}{subsection.G.1}%
+\contentsline {subsection}{\numberline {G.2}Time-Varying Voltage Period Measurements}{13}{subsection.G.2}%
+\contentsline {subsection}{\numberline {G.3}Time-Varying Voltage Frequency Calculations}{14}{subsection.G.3}%
+\contentsline {subsection}{\numberline {G.4}Time-Varying Voltage Peak to Peak Voltage Calculations}{15}{subsection.G.4}%
