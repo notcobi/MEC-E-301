@@ -53,7 +53,7 @@ The T-distribution inverse was calculated using the \texttt{=T.INV()} function, 
    \begin{tabular}{lcccccc}
       \toprule
       & Nominal Value & STDEV & T-Inv & $P_x$ \\
-      & ($\mu$s)      & ($\mu$s)           &                        & ($\mu$s)    \\
+      & ($\mu$s)      & ($\mu$s)           &                        & ($\pm\mu$s)    \\
       \midrule
       10-bit & 21158 & 146.66 & 2.7764 & 182.10 \\
       5-bit  & 21110 & 139.42 & 2.7764 & 173.11 \\
@@ -82,7 +82,8 @@ Sample calculations for the \textbf{10-bit} ADC are shown. To calculate the rand
    \label{tab:time-varying-frequency-measurements}
    \begin{tabular}{lcc}
    \toprule
-      & \multicolumn{2}{c}{Frequency (Hz)}    \\
+      & \multicolumn{2}{c}{Frequency}    \\
+      & (Hz) & ($\pm$Hz) \\
    \cmidrule{2-3}
    & Nominal Value & Uncertainty \\
    \midrule
@@ -145,7 +146,7 @@ and $n = 5$. The systematic uncertainty was taken to be the accuracy of the 3.3V
    \begin{tabular}{lcccccc}
       \toprule
       & Nominal Value & STDEV & T-Inv & $P_x$ & $B_x$ & $U_x$ \\
-      & (V)           & (V)                &       & (V)   & (V)   & (V)   \\
+      & (V)           & (V)                &       & ($\pm$V)   & ($\pm$V)   & ($\pm$V)   \\
       \midrule
       10-bit Trough & 0.544 & 0.01111 & 2.7764 & 0.01380 & 0.01700 & 0.0219 \\
       5-bit Trough  & 0.542 & 0.008307 & 2.7764 & 0.01031 & 0.05156 & 0.0526 \\
@@ -181,7 +182,7 @@ A sample calculation for 10-bit ADC and equation for peak to peak voltage is sho
    \begin{tabular}{lcc}
    \toprule
    & Nominal Value & $U_x$ \\
-   & (V)           & (V)   \\
+   & (V)           & ($\pm$V)   \\
    \midrule
    10-bit & 1.217 & 0.0381  \\
    5-bit  & 1.219 & 0.0981   \\

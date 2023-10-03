@@ -17,6 +17,7 @@ plt.plot(df_10bit['time 10'], df_10bit['voltage 10'], 'k-o', label='10-bit', mar
 # Set the title and labels
 plt.xlabel(r'$t$, Time ($\mu$s)')
 plt.ylabel(r'$V$, Voltage (V)')
+plt.legend(loc='upper right')
 
 # Save the plot
 plt.savefig(r'Lab 2\Sections\Figures\10bit.png', dpi=300)
@@ -30,6 +31,7 @@ plt.plot(df_5bit['time 5'], df_5bit['voltage 5'], 'k-o', label='5-bit', markersi
 # Set the title and labels
 plt.xlabel(r'$t$, Time ($\mu$s)')
 plt.ylabel(r'$V$, Voltage (V)')
+plt.legend(loc='upper right')
 
 # Save the plot
 plt.savefig(r'Lab 2\Sections\Figures\5bit.png', dpi=300)
