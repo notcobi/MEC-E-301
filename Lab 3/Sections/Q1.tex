@@ -32,6 +32,11 @@ were determined using \texttt{=LINEST()} in Excel. The results can be found in T
     \label{fig:Q1a}
 \end{figure}
 
+Note that 2 decimal places were chosen as linear regression involved sum of squares, and the limiting
+decimal place was 2, which comes from the caliper measurements.
+
+The function is:
+\[\boxed{x = 12.67V - 1.50}\]
 
 \subsection{}
 % b) Make a deviation table, deviation curve, linearity table (independent linearity 
@@ -42,37 +47,25 @@ displacement table can be found in Appendix \ref{sec:appendix-potentiometer-disp
 
 The deviation table can be found in Table \ref{tab:Q1b-deviation-table}. The deviation curve can be found in Fig. \ref{fig:Q1b-deviation-curve}.
 
-% deviation table	Up 1	Down 1	Up 2	Down 2	Up 3	Down 3	max dev up	max dev down
-% 0.00		-0.155		-0.155		-0.155		0.000
-% 3.64	-0.032	-0.032	-0.032	0.006	-0.032	0.006	0.000	0.038
-% 7.64	0.049	0.049	0.049	0.049	0.049	0.087	0.000	0.038
-% 11.64	0.053	0.053	0.053	0.015	0.015	0.015	0.038	0.038
-% 15.64	0.058	0.020	0.020	0.020	0.020	0.058	0.038	0.038
-% 19.64	0.012	0.012	-0.026	-0.026	0.012	-0.026	0.038	0.038
-% 23.64	0.016	-0.022	0.016	-0.022	0.016	-0.022	0.000	0.000
-% 27.64	0.059	0.021	0.021	0.021	0.059	0.021	0.038	0.000
-% 31.64	0.025	-0.013	0.025	-0.013	0.025	0.025	0.000	0.038
-% 39.10	-0.123		-0.123		-0.123		0.000	
-
 \begin{table}[h]
     \centering
-    \caption{Deviation table of potentiometer}
+    \caption{Deviation table of potentiometer after conversion to displacement.}
     \label{tab:Q1b-deviation-table}
-    \begin{tabular}{cccccc}
+    \begin{tabular}{ccccccc}
         \hline
-        Caliper Reading & Up 1 & Down 1 & Up 2 & Down 2 & Up 3 \\
-        (mm) & (mm) & (mm) & (mm) & (mm) & (mm) \\
+        Caliper Reading & Up 1 & Down 1 & Up 2 & Down 2 & Up 3 & Down 3 \\
+        (mm) & (mm) & (mm) & (mm) & (mm) & (mm) & (mm) \\
         \midrule
-        0.00 & & -0.155 & & -0.155 & \\
-        3.64 & 3.608 & 3.608 & 3.608 & 3.646 & 3.608 \\
-        7.64 & 7.689 & 7.689 & 7.689 & 7.689 & 7.727 \\
-        11.64 & 11.693 & 11.693 & 11.693 & 11.655 & 11.655 \\
-        15.64 & 15.698 & 15.660 & 15.660 & 15.660 & 15.660 \\
-        19.64 & 19.652 & 19.652 & 19.614 & 19.614 & 19.652 \\
-        23.64 & 23.656 & 23.618 & 23.656 & 23.618 & 23.656 \\
-        27.64 & 27.699 & 27.661 & 27.661 & 27.661 & 27.699 \\
-        31.64 & 31.665 & 31.627 & 31.665 & 31.627 & 31.665 \\
-        39.10 & 38.977 & & 38.977 & & 38.977 \\
+        0.00 & & -0.16 & & -0.16 & & -0.16 \\
+        3.64 & -0.03 & -0.03 & -0.03 & 0.01 & -0.03 & 0.01 \\
+        7.64 & 0.05 & 0.05 & 0.05 & 0.05 & 0.05 & 0.09 \\
+        11.64 & 0.05 & 0.05 & 0.05 & 0.02 & 0.02 & 0.02 \\
+        15.64 & 0.06 & 0.02 & 0.02 & 0.02 & 0.02 & 0.06 \\
+        19.64 & 0.01 & 0.01 & -0.03 & -0.03 & 0.01 & -0.03 \\
+        23.64 & 0.02 & -0.02 & 0.02 & -0.02 & 0.02 & -0.02 \\
+        27.64 & 0.06 & 0.02 & 0.02 & 0.02 & 0.06 & 0.02 \\
+        31.64 & 0.03 & -0.01 & 0.03 & -0.01 & 0.03 & 0.03 \\
+        39.10 & -0.12 & & -0.12 & & -0.12 \\
         \hline
     \end{tabular}
 \end{table}
@@ -80,6 +73,25 @@ The deviation table can be found in Table \ref{tab:Q1b-deviation-table}. The dev
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{matplotlib/Q1b.png}
-    \caption{Deviation curve of potentiometer with respect to displacement (independent linearity)}
+    \caption{Displacement deviation curve of potentiometer with respect to displacement (independent linearity).}
     \label{fig:Q1b-deviation-curve}
 \end{figure}
+
+The linear fit for the deviation curve was found by using \texttt{=LINEST()} in Excel. The results can be found in Table \ref{tab:Q1b-deviation-curve-linear-fit}.
+
+% 5.29E-05	-1.49E-02
+% r^2	9.1052E-05
+
+\begin{table}[h]
+    \centering
+    \caption{Linear fit of deviation curve of potentiometer with respect to displacement (independent linearity).}
+    \label{tab:Q1b-deviation-curve-linear-fit}
+    \begin{tabular}{ccc}
+        \hline
+        Slope & Intercept & $R^2$ \\
+        (V/mm) & (V) & \\
+        \midrule
+        5.29E-05 & -1.49E-02 & 9.11E-05 \\
+        \hline
+    \end{tabular}
+\end{table}

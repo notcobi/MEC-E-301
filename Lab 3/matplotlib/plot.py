@@ -40,7 +40,7 @@ plt.plot(caliper, deviation, 'ko', label='Experimental Data', markersize=6, mark
 plt.plot(caliper, poly(caliper), 'k--', label='Linear Fit')
 plt.text(0.5, -0.1, '$\Delta V$ = ' + str(round(coeff[0], 7)) + '$x$ + ' + str(round(coeff[1], 4)))
 plt.xlabel(r'$x$, Caliper Displacement (mm)')
-plt.ylabel(r'$\Delta V$, Voltage Deviation (V)')
+plt.ylabel(r'$\Delta x$, Displacement Deviation (mm)')
 plt.legend(loc='lower right')
 
 # save
