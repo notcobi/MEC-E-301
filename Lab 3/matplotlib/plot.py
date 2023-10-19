@@ -88,7 +88,7 @@ plt.plot(x, np.polyval(coeff, x), 'k--', label='Polynomial Fit')
 plt.text(1.5, 0.25, '$x$ = ' + str(round(coeff[0], 2)) + '$V^3$ + ' + str(round(coeff[1], 2)) + '$V^2$ + ' + str(round(coeff[2], 2)) + '$V$ + ' + str(round(coeff[3], 2)))
 plt.xlabel(r'$V$, Transducer Voltage (V)')
 plt.ylabel(r'$x$, Caliper Displacement (mm)')
-plt.legend(loc='upper left')
+plt.legend(loc='upper right')
 
 plt.savefig(r"Lab 3\matplotlib\Q2a.png", dpi=300)
 

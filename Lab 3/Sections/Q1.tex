@@ -163,11 +163,12 @@ A summary table is provided below:
     \caption{Summary of results for potentiometer.}
     \label{tab:Q1c-summary-table}
     \begin{tabular}{ccc}
+        \hline
         & Nominal & Relative \\
         & (mm) & (\%) \\
         \midrule
-        Accuracy & 0.16 & 0.40 \\
-        Repeatability & 0.04 & 0.10 \\
+        Accuracy & $\pm$ 0.16 & $\pm$ 0.40 \\
+        Repeatability & $\pm$ 0.04 & $\pm$ 0.10 \\
         Linearity & 0.14 & 0.36 \\
         Resolution & 0.038 & 0.097 \\
         Hysteresis & 0.04 & 0.10 \\
@@ -176,10 +177,10 @@ A summary table is provided below:
 \end{table}
 
 Accuracy can be found by taking the max value absolute value of the deviation Table \ref{tab:Q1b-deviation-table}. The accuracy is therefore,
-\[\boxed{\text{Accuracy} = \max(\text{Table}) = \qty{0.16}{\milli\meter}}\]
+\[\boxed{\text{Accuracy} = \max(\text{Table}) = \pm \qty{0.16}{\milli\meter}}\]
 
 Relative accuracy is
-\[\boxed{\text{Relative Accuracy} = \frac{\text{Accuracy}}{\text{Span}} = \frac{0.16}{39.10} = 0.40\%}\]    
+\[\boxed{\text{Relative Accuracy} = \frac{\text{Accuracy}}{\text{Span}} = \frac{0.16}{39.10} = \pm 0.40\%}\]    
 
 The repeatability is simply the maximum deviation between repeated measurements of the same caliper reading approached from the same direction.
 \begin{empheq}[box=\fbox]{align*}
@@ -202,7 +203,7 @@ The repeatability is simply the maximum deviation between repeated measurements 
 \end{empheq}
 
 The relative repeatability is
-\[\boxed{\text{Relative Repeatability} = \frac{\text{Repeatability}}{\text{Span}} = \frac{0.04}{39.10} = 0.1\%}\]
+\[\boxed{\text{Relative Repeatability} = \frac{\text{Repeatability}}{\text{Span}} = \frac{0.04}{39.10} = \pm 0.1\%}\]
 
 The linearity is the maximum difference between the nominal deviation and the linear fit of the deviation. The linearity is therefore,
 \begin{empheq}[box=\fbox]{align*}
@@ -266,8 +267,8 @@ The plot of displacement over time and velocity over time can be found in Fig. \
 \end{figure}
 
 The velocity was calculated by taking the central difference of the displacement. This was chosen because
-the central difference method has an error of $O(h^2)$, whereas the forward difference method has an error of $O(h)$. A downside
-is that the first and last points cannot be calculated. However, due to the large number of points, this is not a problem.
+the central difference method has an error of $O(h^2)$, whereas the forwards and backwards difference methods have an error of $O(h)$. A downside
+is that the first and last points cannot be calculated. However, due to the large number of points, this was negligible.
 
 
     
