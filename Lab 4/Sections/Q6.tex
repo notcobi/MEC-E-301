@@ -1,0 +1,86 @@
+\section{}
+% Determine the total uncertainty in Δ𝐸0 only for the full bridge when the 1 kg weight 
+% was used: As shown in Eq 2, Δ𝐸0
+% is the voltage difference measured by the Arduino 
+% divided by the gain. Note that 𝐸w and 𝐸nw are both measured by the same device 
+% (the Arduino) and thus 𝐸w and 𝐸nw are not independent measurements. This is a 
+% special (but common) case in uncertainty analysis. Note that in this case, a 
+% systematic bias in the voltage measurement creates no error in the difference 
+% between the voltages (i.e., if the Arduino always measured 10 mV too low it would 
+% result in no error in the voltage difference). However, other sources of bias
+% (resolution or linearity) could still cause errors. In this case, resolution is the largest 
+% bias uncertainty and would have a maximum value equal to the resolution of the 
+% Arduino (3.3 V/2
+% 10). There would also be precision uncertainty in the 
+% measurement of the voltage difference (Δ𝐸w). Thus, calculate the total uncertainty 
+% in Δ𝐸w then use the propagation of uncertainty to find the total uncertainty in Δ𝐸0
+% assuming the uncertainty in the gain is 1%.
+
+\subsection{Uncertainty in $\Delta E_w$}
+% stdev	T-INV	P_x	B_x	U_x
+% Description	mm		mm	mm	mm
+% delta Ew	0.002683282	2.5706	0.0028	0.003222656	0
+
+\begin{table}[h]
+    \centering
+    \caption{Uncertainty in $\Delta E_w$}
+    \label{tab:Q5UncertaintyDeltaEw}
+    \begin{tabular}{cccccc}
+        \toprule
+        Dimension & STDEV & T-INV & $P_x$ & $B_x$ & $U_x$ \\
+        & (V) & & (V) & (V) & (V) \\
+        \midrule
+        $\Delta E_w$ & 2.683E-03 & 2.5706 & 2.8E-03 & 3.223E-03 & 4.3E-03 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Again, standard deviation is calculated using Excel's \texttt{STDEV.S} function. T-INV is calculated using Excel's \texttt{T.INV} function with $\alpha = 0.05$ and $n = 6$. 
+The precision uncertainty $P_x$ is calculated as:
+
+\begin{align*}
+    P_x &= \frac{S_x}{\sqrt{n}} \times t_{\alpha/2, n-1} \\
+    &= \frac{2.683E-03}{\sqrt{6}} \times 2.5706 \\
+    &= \qty{2.8E-03}{V}
+\end{align*}
+
+The bias uncertainty $B_x$ is the resolution, 
+\begin{align*}
+    B_x &= \frac{3.3}{2^{10}} \\
+    &= \qty{3.223E-03}{V}
+\end{align*}
+
+The total uncertainty $U_x$ is calculated as:
+\begin{align*}
+    U_x &= \sqrt{P_x^2 + B_x^2} \\
+    &= \sqrt{(2.8E-03)^2 + (3.223E-03)^2} \\
+    &= \boxed{\qty{4.3E-03}{V}}
+\end{align*}
+
+\subsection{Uncertainty in $\Delta E_0$}
+The equation for $\Delta E_0$ is given by:
+\begin{align*}
+    \Delta E_0 &= \frac{\Delta E_w}{G} \\
+    &= \frac{4.3E-03}{2.09} \\
+    &= \boxed{\qty{2.06E-03}{V}}
+\end{align*}
+
+Calculating the partials,
+\begin{align*}
+    \frac{\partial \Delta E_0}{\partial \Delta E_w} &= \frac{1}{G} \\
+    \frac{\partial \Delta E_0}{\partial G} &= -\frac{\Delta E_w}{G^2}
+\end{align*}
+
+Calculating the partials times the uncertainty (the nominal value for $\Delta E_w$ is 1.160 V),
+\begin{align*}
+    \frac{\partial \Delta E_0}{\partial \Delta E_w} \delta \Delta E_w &=  \frac{1}{3000} \times 4.3 \times 10^{-3} \\
+    & = 1.4\times 10^{-6} \\
+    \frac{\partial \Delta E_0}{\partial G} \delta G &=  -\frac{1.160}{3000^2} \times 1 \times 3000 \\
+    & = -3.9\times 10^{-6}
+\end{align*}
+
+The total uncertainty is the RSS of the partials times the uncertainty in each variable:
+\begin{align*}
+    \delta \Delta E_0 &= \sqrt{(1.4\times 10^{-6})^2 + (-3.9\times 10^{-6})^2} \\
+    &= \boxed{\qty{3.6E-5}{V}}
+\end{align*}

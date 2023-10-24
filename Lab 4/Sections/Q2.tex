@@ -1,0 +1,91 @@
+\section{}
+% Calculate the theoretical strain at the strain gauge location for each load and 
+% summarize the results in a table. Show one sample calculation when using the 1 kg 
+% weight. 
+
+% Mass	M	Stress	epsilon
+% (kg)	Nm	(Pa)	(m/m)
+% 0.050	0.099	2.9E+05	4.2E-06
+% 0.100	0.199	5.75E+05	8.35E-06
+% 0.200	0.398	1.15E+06	1.67E-05
+% 0.500	0.994	2.88E+06	4.17E-05
+% 1.000	1.99	5.75E+06	8.35E-05
+% 1.000	1.99	5.75E+06	8.35E-05
+% 1.000	1.99	5.75E+06	8.35E-05
+% 1.000	1.99	5.75E+06	8.35E-05
+% 1.000	1.99	5.75E+06	8.35E-05
+% 1.000	1.99	5.75E+06	8.35E-05
+
+% Table 2: Beam Dimension Measurements								
+% 	First measurement	Second measurement	Third measurement	Fourth measurement	Fifth measurement	nominal (mean)	Nominal Mean	Moment of Inertia
+% Description	(mm)	(mm)	(mm)	(mm)	(mm)	mm	m	m^4
+% Distance from centre of strain gauge to weight hanger, L	203.5	202.5	202.5	202.5	202.5	202.7	0.2027	2.20017E-09
+% Width of beam, b	12.810	12.813	12.811	12.812	12.812	12.8116	0.0128116	
+% Height of beam, h	12.726	12.729	12.724	12.724	12.725	12.7256	0.0127256	
+
+\subsection{Theoretical Strain}
+The theoretical strains at various loads are given in Table \ref{tab:Q2TheoreticalStrain}.
+\begin{table}[h]
+    \centering
+    \caption{Theoretical strain value at a given loading}
+    \label{tab:Q2TheoreticalStrain}
+    \begin{tabular}{cccc}
+        \toprule
+        Mass & $M$ & $\sigma$ & $\epsilon$ \\
+        (kg) & (Nm) & (Pa) & (m/m) \\
+        \midrule
+        0.050 & 0.099 & 2.9E+05 & 4.2E-06 \\
+        0.100 & 0.199 & 5.75E+05 & 8.35E-06 \\
+        0.200 & 0.398 & 1.15E+06 & 1.67E-05 \\
+        0.500 & 0.994 & 2.88E+06 & 4.17E-05 \\
+        1.000 & 1.99 & 5.75E+06 & 8.35E-05 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Sample Calculation}
+The beam measurements are given in Table \ref{tab:Q2BeamMeasurements}.
+\begin{table}[h]
+    \centering
+    \caption{Beam dimension measurements}
+    \label{tab:Q2BeamMeasurements}
+    \begin{tabular}{ccccccc}
+        \toprule
+        & \multicolumn{5}{c}{Measurement Number} & \\
+        \cmidrule{2-6} 
+        Dimension & 1 & 2 & 3 & 4 & 5 & Nominal Mean \\
+        & (mm) & (mm) & (mm) & (mm) & (mm) & (mm) \\
+        \midrule
+        $L$ & 203.5 & 202.5 & 202.5 & 202.5 & 202.5 & 202.7 \\
+        $b$ & 12.810 & 12.813 & 12.811 & 12.812 & 12.812 & 12.812 \\
+        $h$ & 12.726 & 12.729 & 12.724 & 12.724 & 12.725 & 12.726 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The moment of inertia of the beam is calculated as follows:
+\begin{align*}
+    I &= \frac{bh^3}{12} \\
+    &= \frac{(12.8116 \times 10^{-3})(12.7256 \times 10^{-3})^3}{12} \\
+    &= 2.20017 \times 10^{-9} \text{ m}^4
+\end{align*}
+
+For the 1 kg load, the theoretical strain is calculated as follows:
+\begin{align*}
+    M & = mgl \\
+    & = (1)(9.81)(0.2027) \\
+    & = \qty{1.99}{Nm} \\
+    \sigma & = \frac{M h}{2I} \\
+    & = \frac{(1.99)(12.726 \times 10^{-3})}{2(2.20017 \times 10^{-9})} \\
+    & = \qty{5.75}{MPa} \\
+    \epsilon & = \frac{\sigma}{E} \\
+    & = \frac{5.75 \times 10^6}{68.9 \times 10^9} \\
+    & = \boxed{\qty{8.35 E-05}{m/m}}
+\end{align*}
+
+
+
+
+
+
+

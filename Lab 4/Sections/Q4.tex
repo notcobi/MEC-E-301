@@ -1,0 +1,46 @@
+\FloatBarrier
+\section{}
+% Assuming the accuracy of the tape measure is 1 mm and the accuracy of the 
+% micrometer is 0.003 mm, calculate the total uncertainty in your measurements of b, 
+% h and L (use 95% confidence interval for all uncertainty calculations in this lab.)
+% stdev	T-INV	P_x	B_x	U_x
+% Description	mm		mm	mm	mm
+% Distance from centre of strain gauge to weight hanger, L	0.4	2.7764	0.5	1	1
+% Width of beam, b	0.001	2.7764	0.001	0.003	0.003
+% Height of beam, h	0.002	2.7764	0.002	0.003	0.004
+
+\begin{table}[h]
+    \centering
+    \caption{Uncertainty in measurements of $b$, $h$, and $L$}
+    \label{tab:Q4Uncertainty}
+    \begin{tabular}{cccccc}
+        \toprule
+        Dimension & STDEV & $T_{\text{INV}}$ & $P_x$ & $B_x$ & $U_x$ \\
+        & (mm) & & (mm) & (mm) & (mm) \\
+        \midrule
+        $L$ & 0.4 & 2.7764 & 0.5 & 1 & 1 \\
+        $b$ & 0.001 & 2.7764 & 0.001 & 0.003 & 0.003 \\
+        $h$ & 0.002 & 2.7764 & 0.002 & 0.003 & 0.004 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+A sample calculation of the uncertainty in $L$ is shown below. The uncertainty in $b$ and $h$ are calculated in a similar manner.
+
+Using Excel's \texttt{STDEV.S} function applied to Table \ref{tab:Q2BeamMeasurements}, \texttt{T.INV} function with $\alpha = 0.05$ and $n = 5$, 
+the precision uncertainty $P_x$ is calculated as:
+\begin{align*}
+    P_x &= \frac{S_x}{\sqrt{n}} \times t_{\alpha/2, n-1} \\
+    &= \frac{0.4}{\sqrt{5}} \times 2.7764 \\
+    &= \qty{0.5}{mm}
+\end{align*}
+
+The bias uncertainty $B_x$ was given to be 1 mm. The total uncertainty $U_x$ is calculated as:
+\begin{align*}
+    U_x &= \sqrt{P_x^2 + B_x^2} \\
+    &= \sqrt{(0.5)^2 + (1)^2} \\
+    &= \boxed{\qty{1}{mm}}
+\end{align*}
+
+
+
