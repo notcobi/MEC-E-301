@@ -1,0 +1,46 @@
+\section{}
+% Determine the total uncertainty in the strain only for the full bridge when the 1 kg 
+% weight was used. It is best to do this by calculating the total uncertainty in each 
+% variable and then find the total uncertainty in the strain via propagation of errors. 
+% The uncertainty in the strain gauge factor is 0.02 and the uncertainty in the input 
+% voltage is 0.5%. 
+
+The equation for strain for the full bridge is:
+\begin{align*}
+    \epsilon &= \frac{\Delta E_0}{F_g V_{\text{in}}} 
+\end{align*}
+
+The partials are:
+\begin{align*}
+    \frac{\partial \epsilon}{\partial \Delta E_0} &= \frac{1}{F_g V_{\text{in}}} \\
+    \frac{\partial \epsilon}{\partial F_g} &= -\frac{\Delta E_0}{F_g^2 V_{\text{in}}} \\
+    \frac{\partial \epsilon}{\partial V_{\text{in}}} &= -\frac{\Delta E_0}{F_g V_{\text{in}}^2} \\
+\end{align*}
+
+Evaluating the partials times the uncertainty of each variable is shown in Table \ref{tab:Q7UncertaintyEpsilon}. For example,
+\begin{align*}
+    \frac{\partial \epsilon}{\partial \Delta E_0} \delta \Delta E_0 &=  \frac{1}{2.09 \times 3.3} \times 5.65 \times 10^{-4} \\
+    & = 5.21\times 10^{-6}
+\end{align*}
+\begin{table}[h]
+    \centering
+    \caption{Partials times uncertainty for variables in $\epsilon$}
+    \label{tab:Q7UncertaintyEpsilon}
+    \begin{tabular}{cccc}
+        \toprule
+        Variable & Nominal Value & Uncertainty & $\frac{\partial \epsilon}{\partial x_i} \delta x_i$ \\
+        \midrule
+        $\Delta E_0$ & 5.65E-04 & 3.59E-05 & 5.21E-06 \\
+        $F_g$ & 2.09 & 0.02 & -7.83E-07 \\
+        $V_{\text{in}}$ & 3.3 & 0.017 & -1.35E-06 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The total uncertainty in $\epsilon$ is the RSS of the partials times the uncertainty in each variable:
+\begin{align*}
+    U_{x} &= \sqrt{\left(\frac{\partial \epsilon}{\partial \Delta E_0} \delta \Delta E_0\right)^2 + \left(\frac{\partial \epsilon}{\partial F_g} \delta F_g\right)^2 + 
+    \left(\frac{\partial \epsilon}{\partial V_{\text{in}}} \delta V_{\text{in}}\right)^2} \\
+    &= \sqrt{(5.21\times 10^{-6})^2 + (-7.83\times 10^{-7})^2 + (-1.35\times 10^{-6})^2} \\
+    &= \boxed{5.4 \times 10^{-6}}
+\end{align*}

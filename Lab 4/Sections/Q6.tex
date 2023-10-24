@@ -37,7 +37,6 @@
 
 Again, standard deviation is calculated using Excel's \texttt{STDEV.S} function. T-INV is calculated using Excel's \texttt{T.INV} function with $\alpha = 0.05$ and $n = 6$. 
 The precision uncertainty $P_x$ is calculated as:
-
 \begin{align*}
     P_x &= \frac{S_x}{\sqrt{n}} \times t_{\alpha/2, n-1} \\
     &= \frac{2.683E-03}{\sqrt{6}} \times 2.5706 \\
@@ -53,7 +52,7 @@ The bias uncertainty $B_x$ is the resolution,
 The total uncertainty $U_x$ is calculated as:
 \begin{align*}
     U_x &= \sqrt{P_x^2 + B_x^2} \\
-    &= \sqrt{(2.8E-03)^2 + (3.223E-03)^2} \\
+    &= \sqrt{(2.8\times 10^{-3})^2 + (3.223 \times 10^{-3})^2} \\
     &= \boxed{\qty{4.3E-03}{V}}
 \end{align*}
 
@@ -61,7 +60,7 @@ The total uncertainty $U_x$ is calculated as:
 The equation for $\Delta E_0$ is given by:
 \begin{align*}
     \Delta E_0 &= \frac{\Delta E_w}{G} \\
-    &= \frac{4.3E-03}{2.09} \\
+    &= \frac{4.3 \times 10^{-3}}{2.09} \\
     &= \boxed{\qty{2.06E-03}{V}}
 \end{align*}
 
