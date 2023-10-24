@@ -17,9 +17,6 @@
 % assuming the uncertainty in the gain is 1%.
 
 \subsection{Uncertainty in $\Delta E_w$}
-% stdev	T-INV	P_x	B_x	U_x
-% Description	mm		mm	mm	mm
-% delta Ew	0.002683282	2.5706	0.0028	0.003222656	0
 
 \begin{table}[h]
     \centering
@@ -30,7 +27,7 @@
         Dimension & STDEV & T-INV & $P_x$ & $B_x$ & $U_x$ \\
         & (V) & & (V) & (V) & (V) \\
         \midrule
-        $\Delta E_w$ & 2.683E-03 & 2.5706 & 2.8E-03 & 3.223E-03 & 4.3E-03 \\
+        $\Delta E_w$ & 2.683E-03 & 2.5706 & 2.82E-03 & 3.2E-03 & 4.3E-03 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -40,19 +37,19 @@ The precision uncertainty $P_x$ is calculated as:
 \begin{align*}
     P_x &= \frac{S_x}{\sqrt{n}} \times t_{\alpha/2, n-1} \\
     &= \frac{2.683E-03}{\sqrt{6}} \times 2.5706 \\
-    &= \qty{2.8E-03}{V}
+    &= \qty{2.82E-03}{V}
 \end{align*}
 
 The bias uncertainty $B_x$ is the resolution, 
 \begin{align*}
     B_x &= \frac{3.3}{2^{10}} \\
-    &= \qty{3.223E-03}{V}
+    &= \qty{3.2E-03}{V}
 \end{align*}
 
 The total uncertainty $U_x$ is calculated as:
 \begin{align*}
     U_x &= \sqrt{P_x^2 + B_x^2} \\
-    &= \sqrt{(2.8\times 10^{-3})^2 + (3.223 \times 10^{-3})^2} \\
+    &= \sqrt{(2.28\times 10^{-3})^2 + (3.2 \times 10^{-3})^2} \\
     &= \boxed{\qty{4.3E-03}{V}}
 \end{align*}
 

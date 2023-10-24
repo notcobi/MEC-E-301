@@ -35,9 +35,9 @@ full_fit, _ = curve_fit(linear, strain, full)
 
 
 # Plot the linear fit
-plt.plot(strain, linear(strain, *quarter_fit), 'k--', label='Quarter Bridge Fit')
+plt.plot(strain, linear(strain, *quarter_fit), 'k-.', label='Quarter Bridge Fit')
 plt.plot(strain, linear(strain, *half_fit), 'k--', label='Half Bridge Fit')
-plt.plot(strain, linear(strain, *full_fit), 'k--', label='Full Bridge Fit')
+plt.plot(strain, linear(strain, *full_fit), 'k:', label='Full Bridge Fit')
 
 # plt.plot(strain, np.polyval(quarter_fit, strain), 'k--', label='Quarter Bridge Fit')
 # plt.plot(strain, np.polyval(half_fit, strain), 'k--', label='Half Bridge Fit')
