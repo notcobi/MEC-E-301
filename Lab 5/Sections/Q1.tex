@@ -34,15 +34,11 @@
 % before it goes to the ECU. For each supply voltage (either 3.3 V or 5 V), 
 % calculate the maximum amplification you could use [3 marks] and the 
 % resulting resolution of the measurement system in units of kPa [1 marks]
-
-
-
-
 \section{}
 % Question 1
 Define a list of the design criteria:
 \begin{itemize}
-    \item Pressure range: 0-9 kPa
+    \item Pressure range: 0-0.9 kPa
     \item Resolution should be maximized since the number of bits is fixed to $2^{12}$
     \item Working unit: kPa
 \end{itemize}
@@ -116,7 +112,7 @@ The bias uncertainty in kPa for 3.3V and 5V supply voltages are the exact same. 
 RSS for total uncertainty:
 \begin{empheq}[box=\fbox]{align*}
     \delta P_{3.3\text{V}} = \delta P_{5.0\text{V}} &= \sqrt{\text{Quantization Uncertainty}^2 + \text{Bias Uncertainty}^2} \\
-    &= \sqrt{(5.2 \times 10^{-4}/2)^2 + (7.0 \times 10^{-4})^2} = \qty{7.0E-4}{\kilo\pascal}
+    &= \sqrt{(5.2 \times 10^{-4}/2)^2 + (7.0 \times 10^{-2})^2} = \qty{7.0E-2}{\kilo\pascal}
 \end{empheq}
 Observe that the bias uncertainty is much larger than the resolution of the system, and is the major contributor to the total uncertainty.
 \section{}
@@ -133,11 +129,11 @@ uncertainty, however this is negligible compared to bias. The larger concern is 
 
 The resolution of the unamplified 3.3V system ($5.2\times 10^{-4} \times 1.76 = \qty{9.2E-4}{\kilo\pascal}$) and the 5.0V system 
 ($5.2\times 10^{-4} \times 1.16 = \qty{6.0E-4}{\kilo\pascal}$), which are both reasonably close to the amplified system resolution of 
-$\qty{5.2E-4}{\kilo\pascal}$. \textbf{Since an unamplified system is simpler, cheaper, and sufficient, the 5.5V system will be selected 
+$\qty{5.2E-4}{\kilo\pascal}$. \textbf{Since an unamplified system is simpler, cheaper, and sufficiently resolving, the 5.0V system will be selected 
 due to having a higher resolution than the 3.3V system.}
 
-The uncertainty for this system is $\delta P_{5.0\text{V}} = \qty{7.0E-4}{\kilo\pascal}$, which is acceptable for this application.
-For example, $0.7 \pm 0.0007$ kPa is sufficient for this application as the error is 3 orders of magnitude smaller than the measurement.
+The uncertainty for this system is $\delta P_{5.0\text{V}} = \qty{7.0E-2}{\kilo\pascal}$, which is acceptable for this application.
+For example, $0.7 \pm 0.07$ kPa is sufficient for this application as the error is an order of magnitude smaller than the measurement.
 
 \section{}
 % 6) Rapid pressure fluctuations can occur in the engine intake, which may disrupt 
