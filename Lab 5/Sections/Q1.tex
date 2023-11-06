@@ -34,30 +34,16 @@
 % before it goes to the ECU. For each supply voltage (either 3.3 V or 5 V), 
 % calculate the maximum amplification you could use [3 marks] and the 
 % resulting resolution of the measurement system in units of kPa [1 marks]
-% 4) Read Page 3 and Page 13 of the data sheet. Determine the total bias 
-% uncertainty in your system, in units of kPa, for each supply voltage (either 3.3 
-% MecE-301 10
-% V or 5 V) using maximum amplification when the pressure transducer is 
-% measuring 0.9 kPa when used in the temperature range of -20 to 85 oC. [3 
-% marks] [Note: There is a bias uncertainty due to resolution of the A/D and a 
-% bias uncertainty of the sensor].
-% 5) State which supply voltage and amplification (if any) that should be used. [1 
-% mark]. Is the cost and complexity of amplification worth the benefit of 
-% increased resolution? [1 mark]. Why do you recommend the supply voltage 
-% that you did? [1 mark] Is the uncertainty acceptable for this application? Why
-% or why not? [1 marks]
-% 6) Rapid pressure fluctuations can occur in the engine intake, which may disrupt 
-% your measurements. Recommend a method so that these fluctuations do not 
-% disrupt your measurement. [1 mark]
-% Note: 3 Marks will be given based on the clarity of the presentation of your calculations 
-% and discussion
+
+
+
 
 \section{}
 % Question 1
 Define a list of the design criteria:
 \begin{itemize}
     \item Pressure range: 0-9 kPa
-    \item Resolution should be maximized since the number of bits is fixed to $2^{24}$
+    \item Resolution should be maximized since the number of bits is fixed to $2^{12}$
     \item Working unit: kPa
 \end{itemize}
 
@@ -73,23 +59,95 @@ One pressure range meets these constraints: $\boxed{\text{001KD}}$.
 \end{figure}
 The sensitivity of the sensor for each supply voltage is calculated by taking the derivative of the voltage output with respect to pressure. 
 Since the equations for the voltage output are linear, the sensitivity is constant. 
-\begin{align*}
+\begin{empheq}[box=\fbox]{align*}
     \text{Sensitivity}_{3.3V} &= \frac{d}{dP} \left( 1.32*(P+1) + 0.33 \right) = 1.32 \text{ V/kPa} \\
     \text{Sensitivity}_{5V} &= \frac{d}{dP} \left( 2*(P+1) + 0.5 \right) = 2 \text{ V/kPa}
-\end{align*}
+\end{empheq}
 
 % plt.text(0, 1, '$V_{3.3} = 1.32*(P+1) + 0.33$')
 % plt.text(0, 4, '$V_{5.0} = 2*(P+1) + 0.5$')
 
 \section{}
 The transfer function being used has an output range of 10\% to 90\% of the input range. That means the maximum output of the 
-sensor is $0.9V_{\text{input}}$ 
+sensor is $0.9V_{\text{input}}$.
 
-For the 3.3V supply voltage, the highest output from the sensor is $V_{\text{o, max}} = 0.9\times3.3$. The maximum the EDC can read is 5V, so the maximum amplification is:
+The voltage that the sensor outputs at $0.9$ kPa is not the maximum voltage. Determining that from the equations from Fig. \ref{fig:q2VoltageOutputPlot} gives:
+\begin{align*}
+    V_{3.3, \text{max}} &= 1.32(0.9+1) + 0.33 = \qty{2.838}{\volt} < 0.9\times3.3 = \qty{2.97}{\volt} \\
+    V_{5.0, \text{max}} &= 2(0.9+1) + 0.5 = \qty{4.3}{\volt} < 0.9\times5 = \qty{4.5}{\volt} \\
+\end{align*}
+These values correspond to the maximum output of the sensor in practice. There is some wiggle room since the EDC can read up to 5V,
 \begin{empheq}[box=\fbox]{align*}
-    \text{Amplification}_{3.3V} &= \frac{V_{\text{EDC, max}}}{V_{o, max}} = \frac{5}{0.9\times3.3} = 1.68
+    \text{Amplification}_{3.3\text{V}} &= \frac{V_{\text{EDC, max}} - V_{\text{EDC, min}}}{V_{3.3, \text{max}}} = \frac{5 - 0}{2.838} = 1.76 \\
+    \text{Amplification}_{5.0\text{V}} &= \frac{V_{\text{EDC, max}} - V_{\text{EDC, min}}}{V_{5.0, \text{max}}} = \frac{5 - 0}{4.3} = 1.16
 \end{empheq}
-For the 5V supply voltage, the highest output from the sensor is $V_{\text{o, max}} = 0.9\times5$. The maximum amplification is:
+The resolution of the measurement systems are:
 \begin{empheq}[box=\fbox]{align*}
-    \text{Amplification}_{5V} &= \frac{V_{\text{EDC, max}}}{V_{o, max}} = \frac{5}{0.9\times5} = 1.11
+    \text{Resolution}_{3.3\text{V}} &= \frac{V_{\text{EDC, max}} - V_{\text{EDC, min}}}{2^{n} G (\text{sensitivity}_{3.3V})} \\
+    &= \frac{5 - 0}{2^{12} \times 1.76 \times 1.32} = \qty{5.2e-4}{\kilo\pascal} \\
+    \text{Resolution}_{5.0\text{V}} &= \frac{V_{\text{EDC, max}} - V_{\text{EDC, min}}}{2^{12} G (\text{sensitivity}_{5V})} \\
+    &= \frac{5 - 0}{2^{12} \times 1.16 \times 2} = \qty{5.2e-4}{\kilo\pascal}
 \end{empheq}
+
+\section{}
+% 4) Read Page 3 and Page 13 of the data sheet. Determine the total bias 
+% uncertainty in your system, in units of kPa, for each supply voltage (either 3.3 
+% V or 5 V) using maximum amplification when the pressure transducer is 
+% measuring 0.9 kPa when used in the temperature range of -20 to 85 oC. [3 
+% marks] [Note: There is a bias uncertainty due to resolution of the A/D and a 
+% bias uncertainty of the sensor].
+At the operating temperature range of -20 to 85 $^\circ$C, the bias uncertainty of the sensor is $\pm 3.5\%$ FSS (Full Scale Span). Full scale,
+as defined by the manufacturer, is the difference between the maximum and minimum output signals at the limits of pressure range.
+
+The total bias uncertainty of the system is the RSS of the two independent uncertainties.
+
+For the 3.3V supply voltage, the bias uncertainty of the sensor is:
+\begin{align*}
+    \text{Bias Uncertainty}_{3.3V} &= \% \text{err} \times \frac{\text{FSS}}{\text{sensitivity}} \\
+    &= \pm 0.035 \times \frac{0.9\times3.3 - 0.1\times3.3}{1.32} = \qty{0.070}{\kilo\pascal}
+\end{align*}
+For the 5V supply voltage, the bias uncertainty of the sensor is:
+\begin{align*}
+    \text{Bias Uncertainty}_{5V} &= \% \text{err} \times \frac{\text{FSS}}{\text{sensitivity}} \\
+    &= \pm 0.035 \times \frac{0.9\times5 - 0.1\times5}{2} = \qty{0.070}{\kilo\pascal}
+\end{align*}
+
+The bias uncertainty in kPa for 3.3V and 5V supply voltages are the exact same. In addition their resolutions are also the exact same. Calculating the
+RSS for total uncertainty:
+\begin{empheq}[box=\fbox]{align*}
+    \delta P_{3.3\text{V}} = \delta P_{5.0\text{V}} &= \sqrt{\text{Quantization Uncertainty}^2 + \text{Bias Uncertainty}^2} \\
+    &= \sqrt{(5.2 \times 10^{-4}/2)^2 + (7.0 \times 10^{-4})^2} = \qty{7.0E-4}{\kilo\pascal}
+\end{empheq}
+Observe that the bias uncertainty is much larger than the resolution of the system, and is the major contributor to the total uncertainty.
+\section{}
+% 5) State which supply voltage and amplification (if any) that should be used. [1 
+% mark]. Is the cost and complexity of amplification worth the benefit of 
+% increased resolution? [1 mark]. Why do you recommend the supply voltage 
+% that you did? [1 mark] Is the uncertainty acceptable for this application? Why
+% or why not? [1 marks]
+The unamplified 5.0V system will be used. 
+
+Amplifiers are generally cheap; however, sourcing a low-error amplifier may be more costly. Amplification would reduce the quantization 
+uncertainty, however this is negligible compared to bias. The larger concern is the added error-complexity of the amplifier. 
+\textbf{As such, this design will not use an amplifier.}
+
+The resolution of the unamplified 3.3V system ($5.2\times 10^{-4} \times 1.76 = \qty{9.2E-4}{\kilo\pascal}$) and the 5.0V system 
+($5.2\times 10^{-4} \times 1.16 = \qty{6.0E-4}{\kilo\pascal}$), which are both reasonably close to the amplified system resolution of 
+$\qty{5.2E-4}{\kilo\pascal}$. \textbf{Since an unamplified system is simpler, cheaper, and sufficient, the 5.5V system will be selected 
+due to having a higher resolution than the 3.3V system.}
+
+The uncertainty for this system is $\delta P_{5.0\text{V}} = \qty{7.0E-4}{\kilo\pascal}$, which is acceptable for this application.
+For example, $0.7 \pm 0.0007$ kPa is sufficient for this application as the error is 3 orders of magnitude smaller than the measurement.
+
+\section{}
+% 6) Rapid pressure fluctuations can occur in the engine intake, which may disrupt 
+% your measurements. Recommend a method so that these fluctuations do not 
+% disrupt your measurement. [1 mark]
+% Note: 3 Marks will be given based on the clarity of the presentation of your calculations 
+% and discussion
+Since the design is concerned with sustained (lower frequency) pressures, a low-pass filter can be used to filter out the higher frequency
+signals. 
+
+Transform the signal into the frequency domain using FFT, then employ a low-pass filter as the transfer function. Then 
+inverse transform the signal back into the time domain to obtain the filtered signal!
+
