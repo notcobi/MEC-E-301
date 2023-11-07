@@ -121,19 +121,18 @@ Observe that the bias uncertainty is much larger than the resolution of the syst
 % increased resolution? [1 mark]. Why do you recommend the supply voltage 
 % that you did? [1 mark] Is the uncertainty acceptable for this application? Why
 % or why not? [1 marks]
-The unamplified 5.0V system will be used. 
+The unamplified 5.0V system will be used.
 
-Amplifiers are generally cheap; however, sourcing a low-error amplifier may be more costly. Amplification would reduce the quantization 
-uncertainty, however this is negligible compared to bias. The larger concern is the added error-complexity of the amplifier. 
-\textbf{As such, this design will not use an amplifier.}
+The cost and complexity of amplification is not worth the small increased resolution. Additionally, the amplifier will introduce
+additional error to the system.
 
 The resolution of the unamplified 3.3V system ($5.2\times 10^{-4} \times 1.76 = \qty{9.2E-4}{\kilo\pascal}$) and the 5.0V system 
 ($5.2\times 10^{-4} \times 1.16 = \qty{6.0E-4}{\kilo\pascal}$), which are both reasonably close to the amplified system resolution of 
 $\qty{5.2E-4}{\kilo\pascal}$. \textbf{Since an unamplified system is simpler, cheaper, and sufficiently resolving, the 5.0V system will be selected 
 due to having a higher resolution than the 3.3V system.}
 
-The uncertainty for this system is $\delta P_{5.0\text{V}} = \qty{7.0E-2}{\kilo\pascal}$, which is acceptable for this application.
-For example, $0.7 \pm 0.07$ kPa is sufficient for this application as the error is an order of magnitude smaller than the measurement.
+The uncertainty for this system is $\delta P_{5.0\text{V}} = \qty{7.0E-2}{\kilo\pascal}$, which is an order of magnitude smaller than the 
+highest pressure measured. This should be sufficient for the application of the sensor.
 
 \section{}
 % 6) Rapid pressure fluctuations can occur in the engine intake, which may disrupt 
