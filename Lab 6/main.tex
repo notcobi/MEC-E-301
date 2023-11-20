@@ -15,13 +15,14 @@
 \usepackage{tcolorbox} % Colored boxes
 \usepackage{enumitem} % Enhanced list environments
 \usepackage{xcolor} % Define custom colors
-\usepackage{parskip} % Adjust paragraph spacing
+%\usepackage{parskip} % Adjust paragraph spacing
 \usepackage{siunitx} % Handling SI units
 \usepackage{cancel} % Strikethrough text
 \usepackage{listings} % Include code listings
 \usepackage{tocloft}  % Table of contents formatting
 \usepackage{mathtools}
 \usepackage{pdfpages}
+\usepackage{times}
 
 % 1.5 spacing equivalent to word
 \usepackage{setspace}
@@ -79,16 +80,16 @@
 \pagestyle{fancy} % Use the fancy page style
 \fancyhf{} % Clear all header and footer fields
 \fancyhead[L]{MEC E 301} % Left-aligned header
-\fancyhead[C]{Lab 4: Strain Gauges} % Center header
+\fancyhead[C]{Lab 2: Digital Measurement Techniques} % Center header
 \fancyhead[R]{Alex Diep} % Right-aligned header
 \fancyfoot[C]{\thepage} % Centered page number in the footer
 
 % Section and Subsection Formatting
 %-------------------------------------------------------------------------------
-%\titleformat*{\section}{\Large\bfseries} % Customize section titles
-%\titleformat*{\subsection}{\large\bfseries} % Customize subsection titles
-\renewcommand{\thesection}{Question \arabic{section}} % Modify section numbering
-\renewcommand{\thesubsection}{(\alph{subsection})} % Modify subsection numbering
+\titleformat*{\section}{\Large\bfseries} % Customize section titles
+\titleformat*{\subsection}{\large\bfseries} % Customize subsection titles
+%\renewcommand{\thesection}{Question \arabic{section}} % Modify section numbering
+%\renewcommand{\thesubsection}{(\alph{subsection})} % Modify subsection numbering
 
 % Hyperlink Setup
 %-------------------------------------------------------------------------------
@@ -118,17 +119,22 @@
 \titlespacing*{\section}{0pt}{0.1\baselineskip}{0.2\baselineskip}
 \titlespacing*{\subsection}{0pt}{0.1\baselineskip}{0.2\baselineskip}
 \titlespacing*{\subsubsection}{0pt}{0.1\baselineskip}{0.2\baselineskip}
+
 % End of Preamble
 %-------------------------------------------------------------------------------
 
 %++++++++++++++++++++++++++++++++++++++++
 \begin{document}
+
+\includepdf[pages=-]{rubric.pdf}
+
+
 \begin{titlepage}
     \centering
     \vspace*{2cm} % Adjust vertical spacing
     
     % Title
-    \Huge {MEC E 301 \\Lab 5: Pressure} \\
+    \Huge {MEC E 301 \\Lab 2: Digital Measurement Techniques} \\
     \vspace{1cm} % Adjust vertical spacing
     
     % Author
@@ -136,10 +142,10 @@
     \vspace{1cm} % Adjust vertical spacing
 
     % Date
-    \Large Date: November 7, 2023 \\ % or manually specify a date
+    \Large Date: October 3, 2023 \\ % or manually specify a date
     \vspace{4cm} % Adjust vertical spacing
 
-    % CCID and Student ID in smaller font
+    % CCID and Student ID in smtaller font
     \normalsize CCID: abdiep \\
     \normalsize Student ID: 1664334 \\ 
     \normalsize Section: D21 \\
@@ -151,21 +157,24 @@
 \end{titlepage}
 \renewcommand\arraystretch{1.5}
 
-% % Table of Contents (Hyperlinks set to locally black)
-% {
-%     \hypersetup{hidelinks}
-%     \tableofcontents
-% }
-% % use roman numerals for page numbers in table of contents
-% \pagenumbering{roman}
+% Table of Contents (Hyperlinks set to locally black)
+{
+    \hypersetup{hidelinks}
+    \tableofcontents
+}
+% use roman numerals for page numbers in table of contents
+\pagenumbering{roman}
 
-% \newpage
+\newpage
 
 % seperate page count for main matter
 \pagenumbering{arabic}
 
 
-\input{Sections/Q1.tex}
+\input{Sections/Introduction.tex}
+\input{Sections/Procedure.tex}
+\input{Sections/Results and Discussion.tex}
+\input{Sections/Conclusion.tex}
 
 % \newpage
 % %\bibliographystyle{IEEEtran}
@@ -176,4 +185,17 @@
 \appendix
 \renewcommand\thefigure{\thesection.\arabic{figure}}    
 \renewcommand\thetable{\thesection.\arabic{table}}
+\input{Appendix/Figures.tex}
+\newpage
+%\input{Appendix/Calibration_data.tex}
+%\newpage
+\input{Appendix/A}
+\newpage
+\input{Appendix/B}
+\newpage
+\input{Appendix/C}
+\newpage
+\input{Appendix/D}
+\newpage
+\input{Appendix/E}
 \end{document}
