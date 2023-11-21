@@ -1,21 +1,14 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {section}{\numberline {2}Procedure}{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Equipment}{1}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Calibration}{1}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Time Varying Voltage}{1}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.2}Setup}{1}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Calibration}{1}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Transient Response}{1}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Results and Discussion}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Calibration of the Arduino Uno Results and Discussion}{2}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Time Varying Voltage Results and Discussion}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.1}Calibration}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Transient Response}{2}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Conclusion}{3}{section.4}%
 \contentsline {section}{\numberline {A}Figures}{4}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Schematic of the system}{4}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Plots of Time-Varying Signals}{5}{subsection.A.2}%
-\contentsline {section}{\numberline {B}Appendix: Arduino Uno Accuracy}{7}{appendix.B}%
-\contentsline {section}{\numberline {C}Appendix: Derivation of Resolution}{9}{appendix.C}%
-\contentsline {section}{\numberline {D}Appendix: Voltage Source Accuracy}{10}{appendix.D}%
-\contentsline {section}{\numberline {E}Appendix: Circuit Component Accuracy}{11}{appendix.E}%
-\contentsline {section}{\numberline {F}Time-Varying Voltage Measurements}{12}{appendix.F}%
-\contentsline {subsection}{\numberline {F.1}Mean Sample Calculation}{12}{subsection.F.1}%
-\contentsline {subsection}{\numberline {F.2}Time-Varying Voltage Period Measurements}{12}{subsection.F.2}%
-\contentsline {subsection}{\numberline {F.3}Time-Varying Voltage Frequency Calculations}{13}{subsection.F.3}%
-\contentsline {subsection}{\numberline {F.4}Time-Varying Voltage Peak to Peak Voltage Calculations}{14}{subsection.F.4}%
+\contentsline {section}{\numberline {B}Tables}{7}{appendix.B}%
+\contentsline {section}{\numberline {C}Appendix: Thermistor and Thermocouple Calibration}{10}{appendix.C}%
+\contentsline {section}{\numberline {D}Appendix: Thermistor and Thermocouple Transient Response}{12}{appendix.D}%
