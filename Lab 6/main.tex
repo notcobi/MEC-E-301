@@ -23,11 +23,22 @@
 \usepackage{mathtools}
 \usepackage{pdfpages}
 \usepackage{times}
+\usepackage{mathastext}
 
 % 1.5 spacing equivalent to word
 \usepackage{setspace}
 \linespread{1.25}
 
+% Better texttt
+\newcommand{\opus}[1]{%
+  \begingroup
+    \spaceskip=\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
+    \xspaceskip=\fontdimen7\font\relax
+    \ttfamily
+    %\hyphenchar\font=`\-
+    #1%
+  \endgroup
+}
 
 % Define Custom Colors
 %-------------------------------------------------------------------------------
@@ -80,7 +91,7 @@
 \pagestyle{fancy} % Use the fancy page style
 \fancyhf{} % Clear all header and footer fields
 \fancyhead[L]{MEC E 301} % Left-aligned header
-\fancyhead[C]{Lab 2: Digital Measurement Techniques} % Center header
+\fancyhead[C]{Lab 6: Temperature Measurement Devices} % Center header
 \fancyhead[R]{Alex Diep} % Right-aligned header
 \fancyfoot[C]{\thepage} % Centered page number in the footer
 
@@ -134,7 +145,7 @@
     \vspace*{2cm} % Adjust vertical spacing
     
     % Title
-    \Huge {MEC E 301 \\Lab 2: Digital Measurement Techniques} \\
+    \Huge {MEC E 301 \\Lab 6: Temperature Measurement Devices} \\
     \vspace{1cm} % Adjust vertical spacing
     
     % Author
@@ -142,7 +153,7 @@
     \vspace{1cm} % Adjust vertical spacing
 
     % Date
-    \Large Date: October 3, 2023 \\ % or manually specify a date
+    \Large Date: November 21, 2023 \\ % or manually specify a date
     \vspace{4cm} % Adjust vertical spacing
 
     % CCID and Student ID in smtaller font
@@ -187,15 +198,21 @@
 \renewcommand\thetable{\thesection.\arabic{table}}
 \input{Appendix/Figures.tex}
 \newpage
-%\input{Appendix/Calibration_data.tex}
-%\newpage
-\input{Appendix/A}
+\input{Appendix/Tables.tex}
 \newpage
-\input{Appendix/B}
+\input{Appendix/Calibration.tex}
 \newpage
-\input{Appendix/C}
-\newpage
-\input{Appendix/D}
-\newpage
-\input{Appendix/E}
+\input{Appendix/Transient.tex}
+% \newpage
+% %\input{Appendix/Calibration_data.tex}
+% %\newpage
+% \input{Appendix/A}
+% \newpage
+% \input{Appendix/B}
+% \newpage
+% \input{Appendix/C}
+% \newpage
+% \input{Appendix/D}
+% \newpage
+% \input{Appendix/E}
 \end{document}

@@ -1,45 +1,62 @@
 \section{Figures}
 \label{sec:figures}
-\subsection{Schematic of the system}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{Sections/Figures/noaref.png}
-    \caption{Schematic of the system without a reference voltage used to measure the voltage across the PCB}
-    \label{fig:noaref}
+    \includegraphics[width=0.25\textwidth]{Appendix/TD5A_circuit.png}
+    \caption{Schematic of the circuit for the Honeywell TD5A temperature sensor}
+    \label{fig:TD5A_circuit}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{Sections/Figures/aref.png}
-    \caption{Schematic of the system with a 3.3V reference voltage used to measure the voltage across the PCB}
-    \label{fig:aref}
+    \includegraphics[width=0.4\textwidth]{Appendix/lab_manual_circuit.png}
+    \caption{Built circuit for the Honeywell TD5A temperature sensor}
+    \label{fig:lab_manual_circuit}
+\end{figure}
+
+% linear regression for thermistor and thermocouple
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{matplotlib/thermistor.png}
+    \caption{Linear fit for the thermistor}
+    \label{fig:thermistor_calibration}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{Sections/Figures/oscilloscope.png}
-    \caption{Schematic of the system used to measure the voltage across the PCB with an oscilloscope}
-    \label{fig:oscilloscope}
-\end{figure}
-
-\FloatBarrier
-
-
-\subsection{Plots of Time-Varying Signals}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Sections/Figures/10bit.png}
-    \caption{Time varying signal of PCB 18 Measured with 10-bit ADC of the Arduino Uno}
-    \label{fig:10bit}
+    \includegraphics[width=0.5\textwidth]{matplotlib/thermocouple.png}
+    \caption{Linear fit for the thermocouple}
+    \label{fig:thermocouple_calibration}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{Sections/Figures/5bit.png}
-    \caption{Time varying signal of PCB 18 Measured with 5-bit ADC of the Arduino Uno}
-    \label{fig:5bit}
+    \includegraphics[width=0.5\textwidth]{matplotlib/thermistor_transient_air.png}
+    \caption{Transient response of the thermistor in air}
+    \label{fig:thermistor_transient_air}
 \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{matplotlib/thermocouple_transient_air.png}
+    \caption{Transient response of the thermocouple in air}
+    \label{fig:thermocouple_transient_air}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{matplotlib/thermistor_transient_water.png}
+    \caption{Transient response of the thermistor in water}
+    \label{fig:thermistor_transient_water}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{matplotlib/thermocouple_transient_water.png}
+    \caption{Transient response of the thermocouple in water}
+    \label{fig:thermocouple_transient_water}
+\end{figure}
+
 \FloatBarrier
 
 % invisible character
-\phantom{a}
