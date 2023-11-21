@@ -242,15 +242,21 @@
         \bottomrule
     \end{tabular}
 \end{table}
-\noindent The equation for resolution is given by
+\noindent The thermistor was the worst performing device in terms of accuracy and repeatability. There are several ways to improve the resolution of the 
+thermistor. The equation for resolution is given by
 \begin{equation}
     Resolution = \frac{\Delta V_{\text{fs}}}{2^{n}\times Sensitivity} \label{eq:resolution}
 \end{equation}
 where $\Delta V_{\text{fs}}$ is the full-scale voltage and $n$ is the number of bits.
 
-From (\ref{eq:resolution}), there are three recommendations to increase the resolution of the measurement systems. The first is to utilize an A/D 
+From (\ref{eq:resolution}), there are three recommendations to increase the resolution of the thermistor. The first is to utilize an A/D 
 with a more bits. The second is to increase the sensitivity of the device by using a different material such as platinum. The third is to 
-decrease the full-scale voltage by using an amplifier.
+decrease the full-scale voltage by using an amplifier. The effects of saturation may need to be taken into consideration with the usage of \
+an amplifier.
+
+The thermocouple voltage data was processed in two ways. First the Adafruit conversion equation was used to convert the voltage to temperature.
+Second, a linear fit was performed on the calibration data to convert the voltage to temperature. The accuracy, repeatability, and resolution
+of the thermocouple with the Adafruit conversion equation and the linear fit are shown in Table \ref{tab:accuracy}. 
 
 The thermocouple with the linear fit has a higher accuracy and repeatability than with the Adafruit conversion equation. This is because the
 linear fit is based on the calibration data, which is more accurate than the Adafruit conversion equation. Variation in manufacturing of the
@@ -276,14 +282,15 @@ thermocouple and the Adafruit AD8495 amplifier could contribute to the lower acc
     \end{tabular}
 \end{table}
 \noindent The time constant is a function of the rate of heat transfer to/from the sensor. The higher rate of heat transfer, the lower the time constant. 
-Since water has a higher convection coefficient than air, the time constants in water are lower than in air. This agrees with the experimentally determined 
-time constant values where for both the thermistor and thermocouple, the time constants in water are lower than in air.
+Since water has a higher convection coefficient than air, the time constants are expected to be lower in water than in air. This agrees with the experimentally 
+determined time constant values where for both the thermistor and thermocouple, the time constants in water are lower than in air by about two orders of magnitude.
 
 Thermistors are made of ceramic-like materials whereas thermocouples are made of metal. Metals have free electrons resulting in higher thermal
-conductivity than ceramics. Since the time constant decreases with increasing heat transfer, the thermocouple has a lower time constant than the
+conductivity than ceramics. Since the time constant decreases with increasing heat transfer, the thermocouple is expected to have a lower time constant than the
 thermistor. This agrees with the experimentally determined time constant values where the thermocouple has a lower time constant than the thermistor for
 both air and water.
 
-The first order fit was appropriate. Figues \ref{fig:thermistor_transient_air}, \ref{fig:thermocouple_transient_air}, \ref{fig:thermistor_transient_water}, and
-\ref{fig:thermocouple_transient_water} show the experimental data and the first order fit. The first order fit was a good approximation of the experimental data.
+The first order fit was a good approximation of the experimental data. The first order $\chi^2$ fit was appropriate for the step response to the system. 
+Figures \ref{fig:thermistor_transient_air}, \ref{fig:thermocouple_transient_air}, \ref{fig:thermistor_transient_water}, and 
+\ref{fig:thermocouple_transient_water} show the experimental data and the first order fit. 
 
