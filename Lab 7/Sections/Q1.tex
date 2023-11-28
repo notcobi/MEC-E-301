@@ -288,7 +288,7 @@
 % /s) (1 mark).
 \DeclareSIUnit\mmwater{mmH_2O}
 \DeclareSIUnit\inch{in}
-\DeclareSIUnit\alcohol{alcohol}
+\DeclareSIUnit\inalcohol{inalcohol}
 % question 1
 \section{}
 % Table 5: Ambient pressure and temperature (used for air density calculation)				
@@ -316,15 +316,16 @@ Given that the gas constant for air is $R = \qty{0.287}{\kilo\joule\per\kilogram
     PV &= mRT \\
     \implies \rho &= \frac{P}{RT} \\
     &= \frac{708.9/7.501}{0.287 \times (22 + 273.15)} \\
-    &= \boxed{\qty{1.18}{\kilogram\per\meter\cubed}}
+    &= \boxed{\qty{1.12}{\kilogram\per\meter\cubed}}
 \end{align*}
 
 % question 2
 \section{}
 The maximum velocity is given by
 \begin{equation}
-    v = \frac{2 P_v}{\rho} \label{eq:velocity from dynamic pressure}
+    v = \sqrt{\frac{2 P_v}{\rho}} \label{eq:velocity from dynamic pressure}
 \end{equation}
+
 where $P_v$ is the dynamic pressure and $\rho$ is the density of air. The maximum pressure from 
 Table 2 is $P_v = \qty{20.5}{\mmwater}$. From hydrostatic pressure,
 \begin{equation*}
@@ -332,7 +333,7 @@ Table 2 is $P_v = \qty{20.5}{\mmwater}$. From hydrostatic pressure,
 \end{equation*}
 where $\rho_w$ is the density of water \cite{bigg_density_1967}. Thus in (\ref{eq:velocity from dynamic pressure}),
 \begin{align*}
-    v = \frac{2 \times 20.5 \times 9.78}{1.18} = \boxed{\qty{19.0}{\meter\per\second}}
+    v = \sqrt{\frac{2 \times 20.5 \times 9.78}{1.12}} = \boxed{\qty{19.0}{\meter\per\second}}
 \end{align*}
 
 % question 3
@@ -340,11 +341,12 @@ where $\rho_w$ is the density of water \cite{bigg_density_1967}. Thus in (\ref{e
 Similarly, the velocity at a yaw angle of $-45^\circ$ is given by (\ref{eq:velocity from dynamic pressure}) with 
 $P_v = \qty{14.5}{\mmwater}$. The velocity is
 \begin{align*}
-    v = \frac{2 \times 14.5 \times 9.78}{1.18} = \boxed{\qty{13.6}{\meter\per\second}}
+    v = \sqrt{\frac{2 \times 14.5 \times 9.78}{1.12}} = \boxed{\qty{13.6}{\meter\per\second}}
 \end{align*}
 The error is
 \begin{align*}
-    \% err = \frac{19.0 - 13.6}{19.0} \times 100\% = \boxed{28.4\%}
+    err &= 19.0 - 13.6 = \boxed{\qty{5.4}{\meter\per\second}} \\
+    \% err &= \frac{19.0 - 13.6}{19.0} \times 100\% = \boxed{28.4\%}
 \end{align*}
 
 % question 4
@@ -366,7 +368,7 @@ From the linear regression $y = ax + b$ in Figure \ref{fig:anemometer_calibratio
 The pressure of the orifice is given in the units of inches of alcohol. Converting using $\rho_{alcohol} = \qty{790}{\kilogram\per\meter\cubed}$ 
 \cite{ferner_alcohol_2001}.
 \begin{align*}
-    P_v = \qty{1}{\inch\alcohol} \times \frac{\qty{1}{\meter}}{\qty{39.37}{\inch}} \times 
+    P_v = \qty{1}{\inalcohol} \times \frac{\qty{1}{\meter}}{\qty{39.37}{\inch}} \times 
     \qty{790}{\kilogram\per\meter\cubed} \times \qty{9.81}{\meter\per\second\squared} = \qty{196.8}{\pascal}
 \end{align*}
 
@@ -398,12 +400,12 @@ Sample calculations for the first row of Table \ref{tab:orifice_calibration} are
     P_v &= 33.5 \times 196.8 = \qty{6594.48}{\pascal} \\
     A_c &= \frac{\pi}{4} \times \left(27.3/1000\right)^2 = \qty{5.15E-4}{\meter\squared} \\
     K &= \frac{0.6011 - 0.6013}{35-30}(33.5 - 30) + 0.6013 = 0.60116 \\
-    Q &= \frac{K A_c}{2} \sqrt{\frac{2 P_v}{\rho}} = \frac{0.60116 \times 5.15 \times 10^{-4}}{2} \sqrt{\frac{2 \times 6594.48}{1.18}} 
+    Q &= K A_c \sqrt{\frac{2 P_v}{\rho}} = 0.60116 \times 5.15 \times 10^{-4} \times \sqrt{\frac{2 \times 6594.48}{1.12}} 
     = \boxed{\qty{0.0169}{\meter\cubed\per\second}}
 \end{align*}
-
 % question 6
 \section{}
+\FloatBarrier
 
 % Q	Pressure	beta	A_c	C_d	C_d
 % Venturi	0.0383	1662.697	0.40616622	0.000721066	0.959657799	0.9965
@@ -422,16 +424,15 @@ Sample calculations for the first row of Table \ref{tab:orifice_calibration} are
         \bottomrule
     \end{tabular}
 \end{table}
-
 For the venturi meter, 
 \begin{align*}
     P_v &= 170 \times 9.78 = \qty{1662.7}{\pascal} \\
     \beta &= \frac{d}{D} = \frac{30.3}{74.6} = 0.4062 \\
     A_c &= \frac{\pi}{4} \times \left(30.3/1000\right)^2 = \qty{0.000721}{\meter\squared} \\
     C_d &= \frac{Q_{\text{actual}}\sqrt{1 - \beta^4}}{A_c} \sqrt{\frac{\rho}{2 P_v}} \\
-    &= \frac{0.0383 \times \sqrt{1 - 0.4062^4}}{0.000721}\sqrt{\frac{1.18}{2 \times 1662.7}} = \boxed{0.960}
+    &= \frac{0.0383 \times \sqrt{1 - 0.4062^4}}{0.000721}\sqrt{\frac{1.12}{2 \times 1662.7}} = \boxed{0.960}
 \end{align*}
-For the venturi meter theoretical discharge coefficient, $C_{d, \text{theory}} = 0.9965$.
+For the venturi meter theoretical discharge coefficient, $\boxed{C_{d, \text{theory}} = 0.9965}$.
 
 For the nozzle meter,
 \begin{align*}
@@ -439,17 +440,17 @@ For the nozzle meter,
     \beta &= \frac{d}{D} = \frac{25.63}{74.6} = 0.3432 \\
     A_c &= \frac{\pi}{4} \times \left(25.63/1000\right)^2 = \qty{0.000515}{\meter\squared} \\
     C_d &= \frac{Q_{\text{actual}}\sqrt{1 - \beta^4}}{A_c} \sqrt{\frac{\rho}{2 P_v}} \\
-    &= \frac{0.0383 \times \sqrt{1 - 0.3432^4}}{0.000515}\sqrt{\frac{1.18}{2 \times 3208.6}} = \boxed{0.974}
+    &= \frac{0.0383 \times \sqrt{1 - 0.3432^4}}{0.000515}\sqrt{\frac{1.12}{2 \times 3208.6}} = \boxed{0.974}
 \end{align*}
 For the nozzle meter theoretical discharge coefficient, 
 \begin{align*}
     V &= \frac{Q}{A_c} = \frac{0.0383}{0.000515} = \qty{8.76}{\meter\per\second} \\
-    Re_D &= \frac{\rho V D}{\mu} = \frac{1.18 \times 8.76 \times 74.6/1000}{1.8347 \times 10^{-5}} = 3.97 \times 10^5 \\
+    \text{Re}_D &= \frac{\rho V D}{\mu} = \frac{1.12 \times 8.76 \times 74.6/1000}{1.8347 \times 10^{-5}} = 3.97 \times 10^5 \\
     C_{d, \text{theory}} &= 0.9965 - 6.53 \sqrt{\frac{0.3432}{3.97 \times 10^5}} = \boxed{0.977}
 \end{align*}
 where $\mu$ is the dynamic viscosity of air at $23^\circ$C \cite{bond_viscosity_1937}.
 
-The nozzle is closer to the theory than the venturi meter.
+\textbf{The nozzle is closer to the theory than the venturi meter.}
 
 % question 7
 \section{}
@@ -458,7 +459,7 @@ Error prop for air density, $\rho$,
     \rho &= P^1 R^{-1} T^{-1} \\
     \frac{\delta \rho}{|\rho|} &= \sqrt{\left((1) \frac{\delta P}{|P|}\right)^2 +  \left((-1)\frac{\delta T}{|T|}\right)^2} \\
     &= \sqrt{\left(1\times 0.01\right)^2 + \left((-1)\times 0.01\right)^2} \\
-    &= 0.0141
+    &= \pm 0.0141
 \end{align*}
 Error prop for $Q$,
 \begin{align*}
@@ -483,14 +484,21 @@ For the nozzle meter, $\delta C_d/|C_d| = 0.01$, $\delta P_v/|P_v| = 0.01$, and 
 \end{align*}
 
 For the orifice meter, the $\rho$ term is the dominant term as
-\begin{equation*}
-    %\left(\frac{1}{2}\times \delta P_v/|P_v|\right)^2 > \left(\frac{1}{2}\times \delta \rho/|\rho|\right)^2 > \left(\delta C_d/|C_d|\right)^2
-    \left(\left(-\frac{1}{2}\right)\frac{\delta \rho}{|\rho|}\right)^2 > \left(\left(\frac{1}{2}\right)\frac{\delta P_v}{|P_v|}\right)^2 = \left(\frac{\delta C_d}{|C_d|}\right)^2
-\end{equation*}
-The venturi and nozzle meter, the dominant term is $C_d$ as 
-\begin{equation*}
-    \left(\frac{\delta C_d}{|C_d|}\right)^2 > \left(\frac{1}{2}\times \frac{\delta \rho}{|\rho|}\right)^2 > \left(\frac{1}{2}\times \frac{\delta P_v}{|P_v|}\right)^2
-\end{equation*}
+\begin{align*}
+    &\left(\left(-\frac{1}{2}\right)\frac{\delta \rho}{|\rho|}\right)^2 > \left(\left(\frac{1}{2}\right)\frac{\delta P_v}{|P_v|}\right)^2 
+    = \left(\frac{\delta C_d}{|C_d|}\right)^2 \\
+    \iff &\left(\frac{1}{2}\times 0.0141\right)^2 > \left(\frac{1}{2}\times 0.01\right)^2 = \left(0.005\right)^2
+\end{align*}
+For the venturi, the dominant term is $C_d$ as 
+\begin{align*}
+    &\left(\frac{\delta C_d}{|C_d|}\right)^2 > \left(\frac{1}{2}\times \frac{\delta \rho}{|\rho|}\right)^2 > \left(\frac{1}{2}\times \frac{\delta P_v}{|P_v|}\right)^2 \\
+    \iff &\left(0.02\right)^2 > \left(\frac{1}{2}\times 0.0141\right)^2 > \left(\frac{1}{2}\times 0.01\right)^2
+\end{align*}
+Lastly, for the nozzle, the dominant term is $C_d$ as
+\begin{align*}
+    &\left(\frac{\delta C_d}{|C_d|}\right)^2 > \left(\frac{1}{2}\times \frac{\delta \rho}{|\rho|}\right)^2 > \left(\frac{1}{2}\times \frac{\delta P_v}{|P_v|}\right)^2 \\
+    \iff &\left(0.01\right)^2 > \left(\frac{1}{2}\times 0.0141\right)^2 > \left(\frac{1}{2}\times 0.01\right)^2
+\end{align*}
 
 % question 8
 \section{}
@@ -503,5 +511,5 @@ The venturi and nozzle meter, the dominant term is $C_d$ as
 
 From the linear regression $y = ax + b$ in Figure \ref{fig:turbine_meter_calibration}, the sensitivity is
 \begin{equation*}
-    \boxed{sensitivity = \qty{1.7E4}{\hertz\per\meter\cubed\per\second}}
+    \boxed{sensitivity = \qty{1.7E4}{\hertz\second\per\meter\cubed}}
 \end{equation*}
