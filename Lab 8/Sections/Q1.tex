@@ -1,0 +1,309 @@
+% MecE-301 1
+% Rotation
+% The purpose of this lab is to investigate the use of sensors to measure rotational speed. 
+% Several hand-held tachometers will be tested to investigate their accuracy and method of 
+% operation. Various event sensors will also be used to measure the rotational speed of a 
+% motor. 
+% 1 Hand-held tachometers
+% Several hand-held devices used to measure rotational frequency are first calibrated and 
+% then used to measure the rotational frequency of some devices. These hand-held units are 
+% referred to as tachometers.
+% 1.1 Equipment
+% A synchronous electric motor driven multi-speed tachometer calibrator used to calibrate 
+% the following hand held tachometers:
+% • Direct contact digital electronic tachometer
+% • Photoelectric tachometer
+% • Variable flash rate stroboscope
+% • A variable speed motor and computer hard disk drive are used as unknown rotation 
+% samples.
+% 1.2 Procedure
+% Using the synchronous motor tachometer calibrator, calibrate the four hand held 
+% tachometers over the range of 500 to 1800 RPM. Record the data in Table 1. Record the 
+% resolution of each instrument. 
+% Configure the synchronous motor tachometer calibrator to run at 1800 rpm. Use the 
+% stroboscope and the rotating disk attachment to find several subharmonics and harmonics
+% below and above the true speed. Record the stroboscope rpm and the number of images in 
+% Table 2.
+% Set the variable speed motor at one arbitrary speed between 500−1800 RPM (you can check 
+% it first by digital tachometer) and use each tachometer to determine the rotational speed. 
+% Repeat each measurement 5 times. Record the data in Table 3. Calculate the precision and 
+% total uncertainty in each measurement
+% Use the stroboscope to measure the rotational speed of the computer disk drive. Set the 
+% flashing frequency to get the first still image (ff1). Then reduce flashing frequency to get 
+% the second still image (ff2). Record the data in Table 4. Verify the measurement using the 
+% stroboscope set at the estimated rotational speed to see if you obtain a still image.
+% MecE-301 2
+% 1.3 Data - Handheld Tachometers
+% Table 1 Calibration Data
+% Table 2 Stroboscope rpm and number of stationary images for sub-harmonic and harmonics of the 
+% synchronous motor set at 1800 rpm.
+% Stroboscope (rpm) No. of images
+% Sub-harmonic images 
+% of a single mark 1
+% Harmonic images
+% 2
+% 3
+% 4
+% Table 3 Measurements of the rotational speed of the variable speed drive at one setting.
+% Measurement Digital tachometer 
+% (rpm)
+% Photoelectric tachometer 
+% (rpm)
+% Stroboscope
+% (rpm)
+% 1
+% 2
+% 3
+% 4
+% 5
+% Precision Uncertainty
+% Total Uncertainty
+% Sample calculation:
+% Table 4 Hard drive speed measurement
+% First imagefreeze at: (ff1, 
+% rpm)
+% Second imagefreeze at: (ff2, 
+% rpm)
+% Calculated 
+% speed using ff1
+% and ff2 (rpm)
+% Verified 
+% speed 
+% (rpm)
+% Calculation:
+% Speed 
+% (rpm) Digital (rpm) Photoelectric 
+% (rpm)
+% Stroboscope
+% (rpm)
+% 500
+% 600
+% 800
+% 1000
+% 1800
+% Resolution
+% Accuracy
+% MecE-301 3
+% 2 Event Measurement on Rotating Devices
+% In this section five event sensors are investigated that can be used to calculate the rotational 
+% speed of a rotating device.
+% 2.1 Equipment
+% The following equipment is used in this section of the lab:
+% • Single speed AC electric motor with output shaft connected to rotating drum
+% • Five non-contact electronic sensors adjacent to the rotating drum. With the motor 
+% on the left and looking left-to-right these are:
+% o Light transmission slot switch with infrared LED and phototransistor, with 
+% 12 holes on drum (Sensor 1).
+% o Hall-effect magnetic field detector, with one magnet on drum (Sensor 2).
+% o LED - phototransistor pair, with 10 non-reflective black bands on drum
+% (Sensor 3).
+% o LED - phototransistor pair, with 1 non-reflective band on drum (Sensor 4).
+% o Hall-effect sensor with internal magnet monitoring the passing of 18 gear 
+% teeth (Sensor 5).
+% • Digital storage oscilloscope (DSO)
+% • Arduino with laptop
+% 2.2 Procedure
+% Connect the output line from the electronic sensor selector switch to the oscilloscope. Turn 
+% on the motor and observe the output waveforms of the 5 sensors on the oscilloscope. A 
+% Schmitt trigger integrated circuit is used to sharpen the rise and fall times of the sensors 
+% and produce square wave forms. Use the oscilloscope to look at the sensor outputs with 
+% and without the Schmitt trigger.
+% Steady-state angular velocity measurements
+% With your Arduino and the function called “ME301_Period_Measurement” (posted on 
+% eClass) measure the frequency of each sensor. Put the black wire into the digital GND and 
+% the red wire into digital PIN 2. The sketch measures the time between two rising edges of 
+% a signal (i.e. the period). Using this sketch record the period of each of the signals coming 
+% from the sensors. Record 10 period measurements for each sensor. 
+% Now, open the sketch called “ME301_Frequency_Counter” (on eClass). This sketch counts 
+% the number of rising edges (i.e. “events”) in a given window of time (i.e. “gate time”). 
+% Record the frequency of each of the signals coming from the sensors. Record 10 
+% measurements for each sensor.
+% Transient angular velocity measurements
+% Use your Arduino to measure the acceleration of the motor using the period measurement 
+% technique (the gate method isn’t very useful here because the gate time is usually large 
+% compared to the acceleration time). Upload the “ME301_Period_Measurement” sketch to 
+% your Arduino. Make sure the motor is turned off and turn the sensor selector on the motor 
+% to the sensor you want to measure. Turn on the motor and wait for the motor to reach a 
+% steady-state velocity. Turn off the motor. Save the acceleration portion of the data to a 
+% maximum of 300 data points. Repeat this for each sensor.
+% MecE-301 4
+% 3 Worksheet
+% 1. You used your Arduino in the steady-state tests of the electric motor to measure 
+% the frequency of the signals using two methods (gating and period). 
+% a. Calculate the angular velocity (units of rad/s) of the motor using each sensor 
+% for both of the methods and tabulate the results in a table. The angular 
+% velocity () is
+% 𝜔 =
+% 2π𝑓
+% 𝑁
+% =
+% 2π
+% 𝑁𝑇
+% (1)
+% where N is the number of events per revolution, f is the frequency, and T is 
+% the period between measurements. 
+% Show one sample calculation for each method (gating and period).
+% b. Derive an expression for the bias uncertainty in angular velocity (units of 
+% rad/s) for the gate method and the period method. See the lecture notes 
+% (Section 2 in Rotational Measurement notes) for discussion on bias 
+% uncertainty in these methods. 
+% Hint 1: For the gate method, the bias (resolution) uncertainty will be  1
+% count. (You can neglect the error in time). 
+% Hint 2: In the Arduino period measurement sketch, the time between rising 
+% edges is found by the “micros” function, which has a resolution of 4 s. 
+% Therefore, the bias (resolution) uncertainty in the period measurement is +/-
+% 4 s.
+% c. Calculate the precision, bias, and total uncertainty in angular velocity (units 
+% of rad/s) for each sensor and both methods and tabulate the results in a table. 
+% Show one sample calculation for the precision, bias, and total uncertainty.
+% d. Under what conditions is it preferable (most accurate) to use the gating or 
+% period method?
+% 2. For the transient tests:
+% a. Calculate the angular velocity (rad/s) and angular acceleration (rad/s2
+% ) for 
+% each system at each time step (t) and tabulate in a table. The angular 
+% acceleration () is
+% 𝛼 =
+% d𝜔
+% d𝑡
+% (2)
+% For discrete data, the angular acceleration, 𝛼𝑖
+% , at a time step, 𝑡𝑖
+% , is
+% 𝛼𝑖 ≈
+% 𝜔𝑖 − 𝜔𝑖−1
+% 𝑡𝑖 − 𝑡𝑖−1
+% =
+% 𝜔𝑖 − 𝜔𝑖−1
+% 𝑇𝑖
+% (3)
+% where i–1 represents the values from the previous time step. Since Ti is 
+% measured directly with the period method, the righthand side of Equation 3 
+% is easy to use to calculate the angular acceleration.
+% b. Plot angular velocity vs time and angular acceleration vs time for Sensor 1 
+% (two separate plots) and plot angular velocity vs time and angular 
+% acceleration vs time for Sensor 2 (two more plots). (Because the number of 
+% data points is so large, feel free to represent the data with a line rather than 
+% individual points.)
+% MecE-301 5
+% c. Calculate the precision uncertainty in angular velocity for each sensor. 
+% Since you can’t repeat measurements of a transient test, use a “singlesample precision uncertainty” (see Section 2.3 of the Dimensional 
+% Measurement lecture notes) using the data from the steady-state tests.
+% Tabulate the precision uncertainty for each sensor and show one sample 
+% calculation.
+% d. Calculate the bias and total uncertainty in each angular velocity 
+% measurement at each time step. In one figure, plot the total uncertainty in 
+% angular velocity (in terms of rad/s) versus the angular velocity for the five
+% different sensors. 
+% e. Derive an expression for the total uncertainty in the angular acceleration 
+% using Equation 3 to propagate the uncertainties in the angular velocities
+% (𝜔𝑖 and 𝜔𝑖−1
+% ) and the period (𝑇𝑖
+% ). In one figure, plot the total uncertainty in 
+% angular acceleration (in terms of rad/s2
+% ) versus the angular velocity for the 
+% five different sensors. 
+% f. What else could be done to reduce the uncertainty besides changing the 
+% number of events per revolution? 
+% g. What is a disadvantage to having a low number of events per revolution?
+% Use the Data Collection Excel file to collect AND analyze your data AND answer all 
+% questions in the précis. You only need to submit the .xlsx file (a separate PDF file is not 
+% required).
+
+\section{}
+\section{}
+For frequency
+\begin{gather*}
+    \omega = \frac{2 \pi n}{N t_{\text{gate}}} \\
+    \delta \omega = \sqrt{\left(\frac{\partial \omega}{\partial n} \delta n\right)^2} \\
+    \delta \omega = \bigg| \frac{2 \pi}{N t_{\text{gate}}} \bigg| \delta n 
+\end{gather*}
+For period
+\begin{gather*}
+    \omega = \frac{2 \pi}{N T} \\
+    \delta \omega = \sqrt{\left(\frac{\partial \omega}{\partial T} \delta T\right)^2} \\
+    \delta \omega = \bigg| \frac{2 \pi}{N T^2} \bigg| \delta T 
+\end{gather*}
+Also for frequency
+\begin{gather*}
+    \omega = \frac{2\pi f}{N} \\
+    \delta \omega = \sqrt{\left(\frac{\partial \omega}{\partial f} \delta f\right)^2} \\
+    \delta \omega = \bigg| \frac{2 \pi}{N} \bigg| \delta f
+\end{gather*}
+
+For single measurement uncertainty for the Sensor 1, first row of data,
+\begin{gather*}
+    \delta T \approx 2 \sigma_{e} = 2\times 8.69 = \qty{17.4}{\micro\second} \\
+    \delta \omega = \bigg| \frac{2 \pi}{N T^2} \bigg| \delta T  = \frac{2 \pi}{12 \times 63356}\times 17.4 \times 10^{6} =  \qty{0.002267}{\radian\per\second} \\
+\end{gather*}
+
+Angular acceleration, for the forward difference method,
+\begin{gather*}
+    \alpha_i = \frac{\omega_i - \omega_{i-1}}{T_i} \\
+    \delta \alpha_i = \sqrt{\left(\frac{\partial \alpha_i}{\partial \omega_i} \delta \omega_i\right)^2 
+    + \left(\frac{\partial \alpha_i}{\partial \omega_{i-1}} \delta \omega_{i-1}\right)^2 
+    + \left(\frac{\partial \alpha_i}{\partial T_i} \delta T_i\right)^2} \\
+    \delta \alpha_i = \sqrt{\left(\frac{1}{T_i} \delta \omega_i\right)^2
+    + \left(\frac{-1}{T_i} \delta \omega_{i-1}\right)^2
+    + \left(\frac{\omega_i - \omega_{i-1}}{T_i^2} \delta T_i\right)^2} 
+\end{gather*}
+
+For period bias for Sensor 1, 
+\begin{align*}
+    \omega &= \frac{2 \pi}{N T} \\
+    B_{x, \omega} &= \sqrt{\left(\frac{\partial \omega}{\partial T} \delta T\right)^2} \\
+    B_{x, \omega} &= \bigg| \frac{2 \pi}{N T^2} \bigg| \delta T = \frac{2\pi}{12 \times 4250^2} \times 4 \times 10^6 = \qty{0.116}{\radian\per\second} 
+\end{align*}
+
+For frequency bias for Sensor 1,
+\begin{align*}
+    \omega &= \frac{2 \pi n}{N t_{\text{gate}}} \\
+    B_{x, \omega} &= \sqrt{\left(\frac{\partial \omega}{\partial n} \delta n\right)^2} \\
+    B_{x, \omega} &= \bigg| \frac{2 \pi}{N t_{\text{gate}}} \bigg| \delta n = \frac{2\pi}{12 \times 1000} \times 1 \times 10^3 = \qty{0.524}{\radian\per\second}
+\end{align*}
+
+For period precision for Sensor 1,
+\begin{align*}
+    P_{x, T} &= t_{\alpha/2, \nu} \frac{S_{x, T}}{\sqrt{N}} = 2.262 \times \frac{8.69}{\sqrt{10}} = \qty{6.22}{\micro\second} \\
+    P_{x, \omega} &= \bigg| \frac{2 \pi}{N T^2} \bigg| P_{x, T} = \frac{2\pi}{12 \times 4250^2} \times 6.22 \times 10^6 = \qty{0.180}{\radian\per\second}
+\end{align*}
+
+For frequency precision for Sensor 1,
+\begin{gather*}
+    P_{x, f} = t_{\alpha/2, \nu} \frac{S_{x, f}}{\sqrt{N}} = 2.262 \times \frac{0.316}{\sqrt{10}} = \qty{0.226}{\hertz} \\
+    P_{x, \omega} = \bigg| \frac{2 \pi}{N} \bigg| P_{x, f} = \frac{2\pi}{12} \times 0.226 = \qty{0.118}{\radian\per\second}
+\end{gather*}
+
+For period total uncertainty for Sensor 1,
+\begin{align*}
+    U_{x, \omega} &= \sqrt{P_{x, \omega}^2 + B_{x, \omega}^2} = \sqrt{0.180^2 + 0.116^2} = \qty{0.214}{\radian\per\second} 
+\end{align*}
+
+For frequency total uncertainty for Sensor 1,
+\begin{align*}
+    U_{x, \omega} &= \sqrt{P_{x, \omega}^2 + B_{x, \omega}^2} = \sqrt{0.118^2 + 0.524^2} = \qty{0.537}{\radian\per\second}
+\end{align*}
+
+
+% %--------- 
+% %homework help for jayden (PDEs)
+% \newpage
+% Let
+% \begin{align*}
+%     U(\omega, t) &= \frac{2}{\omega \pi} \left(1 - e^{-k \omega^2 t} \right) \\
+%     &= \frac{2}{\omega \pi} - \frac{2}{\omega \pi} e^{-k \omega^2 t}
+% \end{align*}
+% Since $\mathcal{S}\{1\} = \frac{2}{\omega \pi}$ and $\mathcal{S}\{e^{-\alpha x^2}\} = \frac{1}{\sqrt{\pi \alpha}} e^{-\omega^2/4\alpha}$, 
+
+% The second term inverse $\mathcal{S}^{-1}\left\{e^{-k \omega^2 t}\right\}$ can be found by letting $kt = \frac{1}{4\alpha}$, so that $\alpha = \frac{1}{4kt}$, and
+% \begin{align*}
+%     \mathcal{S}^{-1}\left\{ e^{-k \omega^2 t} \right\} &= \sqrt{\pi \alpha}\mathcal{S}^{-1}\left\{\frac{1}{\sqrt{\pi \alpha}} e^{-\omega^2/4\alpha} \right\} \\
+%     &= \sqrt{\pi \alpha} e^{-\alpha x^2} 
+% \end{align*}
+
+% Then by convolution,
+% \begin{align*}
+%     u(x, t) &= \mathcal{S}^{-1}\left\{ \frac{2}{\omega \pi} \right\} - \mathcal{S}^{-1}\left\{ \frac{2}{\omega \pi} e^{-k \omega^2 t} \right\} \\
+%     &= 1 - \mathcal{S}^{-1}\left\{ S\{1\} S\left\{\text{solve for this}\right\} \right\} \\
+%     &= 1 - \int_{0}^{\infty} 1\cdot \mathcal{S}^{-1}\left\{e^{-k \omega^2 \tau}\right\} d\tau
+% \end{align*}
